@@ -3,19 +3,19 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:56881",
-      "sslPort": 44316
+      "applicationUrl": "http://localhost:6679",
+      "sslPort": 44377
     }
   },
   "profiles": {
-    "HouseRenting": {
+    "MyShop": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7220;http://localhost:5215",
+      "applicationUrl": "https://localhost:7205;http://localhost:5112",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
