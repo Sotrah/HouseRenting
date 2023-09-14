@@ -2,7 +2,7 @@
 
 <div class="container">
     <table class='table table-striped'>
-        <tr><th>Id</th><th>Name</th><th>Price</th><th>Description</th></tr>
+        <tr><th>Id</th><th>Name</th><th>Price</th><th>Description</th><th>Rooms</th><th>Address</th><th>Telephone</th></tr>
         @foreach (var item in Model)
         {
             <tr>
@@ -14,6 +14,9 @@
                 </td>
                 <td>@item.Price.ToString("0.00 NOK")</td>
                 <td>@item.Description</td>
+                <td>@item.Rooms</td>
+                <td>@item.Address</td>
+                <td>@item.Telephone</td>
                 <td></td>
             </tr>
         }
