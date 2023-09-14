@@ -54,7 +54,10 @@ public class ItemController : Controller
             Name = "Hus1",
             Price = 150,
             Description = "Hus1.",
-            ImageUrl = "/images/hus1.jpg"
+            ImageUrl = "/images/hus1.jpg",
+            Rooms = 1,
+            Address = "Address1",
+            Telephone = 1111111
         };
 
         var item2 = new Item
@@ -63,7 +66,10 @@ public class ItemController : Controller
             Name = "Hus 2",
             Price = 20,
             Description = "Hus2.",
-            ImageUrl = "/images/hus2.jpg"
+            ImageUrl = "/images/hus2.jpg",
+            Rooms = 2,
+            Address = "Address2",
+            Telephone = 2222222
         };
 
         var item3 = new Item
@@ -72,7 +78,10 @@ public class ItemController : Controller
             Name = "Hus3",
             Price = 50,
             Description = "Hus3",
-            ImageUrl = "/images/hus3.jpg"
+            ImageUrl = "/images/hus3.jpg",
+            Rooms = 3,
+            Address = "Address3",
+            Telephone = 3333333
         };
 
         var item4 = new Item
@@ -81,7 +90,10 @@ public class ItemController : Controller
             Name = "Hus4",
             Price = 250,
             Description = "Hus4",
-            ImageUrl = "/images/hus4.jpg"
+            ImageUrl = "/images/hus4.jpg",
+            Rooms = 4,
+            Address = "Address4",
+            Telephone = 44444444
         };
 
         var item5 = new Item
@@ -90,7 +102,10 @@ public class ItemController : Controller
             Name = "Hus5",
             Price = 150,
             Description = "Hus5",
-            ImageUrl = "/images/hus5.jpg"
+            ImageUrl = "/images/hus5.jpg",
+            Rooms = 5,
+            Address = "Address5",
+            Telephone = 5555555
         };
 
         var item6 = new Item
@@ -99,7 +114,10 @@ public class ItemController : Controller
             Name = "Hus6",
             Price = 180,
             Description = "Hus6",
-            ImageUrl = "/images/hus6.jpg"
+            ImageUrl = "/images/hus6.jpg",
+            Rooms = 6,
+            Address = "Address6",
+            Telephone = 6666666
         };
 
 
