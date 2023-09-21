@@ -17,9 +17,7 @@
     <None Remove="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Views\Item\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\images\" />
@@ -31,5 +29,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
   </ItemGroup>
 </Project>
