@@ -2,7 +2,17 @@
 
 <div class="container">
     <table class='table table-striped'>
-        <tr><th>Id</th><th>Name</th><th>Price</th><th>Description</th><th>Rooms</th><th>Address</th><th>Telephone</th></tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Rooms</th>
+            <th>Address</th>
+            <th>Telephone</th>
+            <th>Actions</th>
+        </tr>
         @foreach (var item in Model)
         {
             <tr>
@@ -14,11 +24,22 @@
                 </td>
                 <td>@item.Price.ToString("0.00 NOK")</td>
                 <td>@item.Description</td>
+                <td>
+                    <img src="@item.ImageUrl" alt="Item Image" style="max-width:80px; max-height: 80px;" />
+                </td>
                 <td>@item.Rooms</td>
                 <td>@item.Address</td>
                 <td>@item.Telephone</td>
-                <td></td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.ItemId">Update</a>
+                    <a asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
+                </td>
             </tr>
         }
     </table>
+    <p>
+        <a class="btn btn-secondary"
+        asp-controller="Item"
+        asp-action="Create">Create New Item</a>
+    </p>
 </div>
