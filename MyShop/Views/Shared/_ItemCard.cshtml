@@ -2,12 +2,7 @@
 
 <div class="col">
     <div>
-        <a asp-controller="Item"
-           asp-action="Details"
-           asp-route-id="@Model.ItemId">
-            <img src="@Model.ImageUrl" class="card-img-top" style="height: 20vh; object-fit: cover;" alt="@Model.Name">
-        </a>
-        
+        <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Name">
         <div>
             <div class="d-flex justify-content-between mt-2">
                 <h5 class="text-start">

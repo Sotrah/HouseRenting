@@ -14,9 +14,14 @@
     <None Remove="Views\Home\" />
     <None Remove="Views\Shared\" />
     <None Remove="ViewModels\" />
-    <None Remove="Views\Login\" />
+    <None Remove="Views\Customer\" />
+    <None Remove="Views\Order\" />
+    <None Remove="DAL\" />
+    <None Remove="Logs\" />
+    <None Remove="Migrations\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\Item\" />
@@ -24,12 +29,31 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\Login\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="DAL\" />
+    <Folder Include="Logs\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.20" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.20" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20230804124308_ItemDb.cs" />
+    <Compile Remove="Migrations\20230804124308_ItemDb.Designer.cs" />
   </ItemGroup>
 </Project>
