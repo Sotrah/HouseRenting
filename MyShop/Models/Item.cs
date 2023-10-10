@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace MyShop.Models
@@ -20,6 +21,9 @@ namespace MyShop.Models
         public string? ImageUrl { get; set; }
         // navigation property
         public virtual List<OrderItem>? OrderItems { get; set; }
+
+        // for flatpickr date picker
+        public virtual List<BookedDate>? BookedDates { get; set; }
     }
 }
 

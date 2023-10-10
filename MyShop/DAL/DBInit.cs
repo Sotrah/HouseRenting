@@ -21,7 +21,20 @@ public static class DBInit
                     Name = "Pizza",
                     Price = 150,
                     Description = "Delicious Italian dish with a thin crust topped with tomato sauce, cheese, and various toppings.",
-                    ImageUrl = "/images/pizza.jpg"
+                    ImageUrl = "/images/pizza.jpg",
+                    BookedDates = new List<BookedDate>
+                    {
+                        // Add booked dates here
+                        new BookedDate
+                        {
+                            DateTime = new DateTime(2023, 10, 15),  // Example booked date
+                        },
+                        new BookedDate
+                        {
+                            DateTime = new DateTime(2023, 10, 22)   // Another example booked date
+                        }
+
+                    }
                 },
                 new Item
                 {
