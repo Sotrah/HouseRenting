@@ -5,7 +5,7 @@
 </h3>
 
 <div class="row gx-5">
-    <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid col-5" />
+    <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid col-5" style="height: 300px; object-fit: contain" />
     <div class="col-7">
         <h5>@Model.Description</h5>
         <h3 class="pull-right">@Model.Price.ToString("0.00 NOK per night")</h3>
@@ -18,4 +18,4 @@
     </div>
 </div>
 
-<img src="@Model.ImageUrl" class="card-img-top" style="height: 20vh; object-fit: cover;" alt="@Model.Name">
+
