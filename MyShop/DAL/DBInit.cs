@@ -18,59 +18,91 @@ public static class DBInit
             {
                 new Item
                 {
-                    Name = "Pizza",
+                    Name = "House",
                     Price = 150,
-                    Description = "Delicious Italian dish with a thin crust topped with tomato sauce, cheese, and various toppings.",
-                    ImageUrl = "/images/pizza.jpg"
+                    Description = "Nice house",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus1.jpg"
                 },
                 new Item
                 {
-                    Name = "Fried Chicken Leg",
+                    Name = "Castle",
                     Price = 20,
-                    Description = "Crispy and succulent chicken leg that is deep-fried to perfection, often served as a popular fast food item.",
-                    ImageUrl = "/images/chickenleg.jpg"
+                    Description = "Beautiful fairytale castle",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus2.jpg"
                 },
                 new Item
                 {
-                    Name = "French Fries",
+                    Name = "Housy house",
                     Price = 50,
-                    Description = "Crispy, golden-brown potato slices seasoned with salt and often served as a popular side dish or snack.",
-                    ImageUrl = "/images/frenchfries.jpg"
+                    Description = "Very housy house",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus3.jpg"
                 },
                 new Item
                 {
-                    Name = "Grilled Ribs",
+                    Name = "The Elk Mountain Lodge",
                     Price = 250,
-                    Description = "Tender and flavorful ribs grilled to perfection, usually served with barbecue sauce.",
-                    ImageUrl = "/images/ribs.jpg"
+                    Description = "Located on 2 acres of the gorgeous hillside, you’ll have plenty of space for sprawling out and enjoying the fresh mountain air in privacy. Get ready to take in clear night skies full of brilliant constellations from the back-patio hot tub— whether it’s a cold winter night or a fresh summer evening",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus4.jpg"
                 },
                 new Item
                 {
-                    Name = "Tacos",
+                    Name = "Vivenda Vida Boa",
                     Price = 150,
-                    Description = "Tortillas filled with various ingredients such as seasoned meat, vegetables, and salsa, folded into a delicious handheld meal.",
-                    ImageUrl = "/images/tacos.jpg"
+                    Description = "After a year-long restoration project, we are thrilled to present Vivenda Vida Boa. Translating to The Good Life House in Portuguese, every inch of this property has been lovingly and thoughtfully restored to present an experience of upscale casual elegance.",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus5.jpg"
                 },
                 new Item
                 {
-                    Name = "Fish and Chips",
+                    Name = "The Pearl in Gulf Shores",
                     Price = 180,
-                    Description = "Classic British dish featuring battered and deep-fried fish served with thick-cut fried potatoes.",
-                    ImageUrl = "/images/fishandchips.jpg"
+                    Description = "Mix a cocktail at the wet bar and toast to the paradise that is beach life. With plenty of seating throughout, everyone can spend time together and find time to themselves. ",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus6.jpg"
                 },
                 new Item
                 {
-                    Name = "Cider",
+                    Name = "Heavenly Sunset",
                     Price = 50,
-                    Description = "Refreshing alcoholic beverage made from fermented apple juice, available in various flavors.",
-                    ImageUrl = "/images/cider.jpg"
+                    Description = "A welcoming, open floor plan makes it easy for your group to spend time together AND find quiet moments to yourself. Professional interior design and all-new appliances and furnishings make Heavenly Sunset the perfect setting for your next family vacation, corporate retreat, or romantic couples’ getaway.",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus7.jpg"
                 },
                 new Item
                 {
-                    Name = "Coke",
+                    Name = "Houseboat",
                     Price = 30,
-                    Description = "Popular carbonated soft drink known for its sweet and refreshing taste.",
-                    ImageUrl = "/images/coke.jpg"
+                    Description = "“There is still a small amount of wave action and you’ll feel a slight rock from time-to-time, mostly from boats passing by who don’t respect the no wake zone (feel free to yell at them & shake your fist while doing so).”",
+                    Address = "Gate 1, Oslo",
+                    Phone = "64578324",
+                    Rooms = "3",
+                    Beds = "6",
+                    ImageUrl = "/images/hus8.jpg"
                 },
             };
             context.AddRange(items);

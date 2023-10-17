@@ -5,8 +5,12 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Price</th>
+            <th>Price per night</th>
             <th>Description</th>
+            <th>Address</th>
+            <th>Phone number</th>
+            <th>Rooms</th>
+            <th>Beds</th>
             <th>Image</th>
             <th>Actions</th>
         </tr>
@@ -21,8 +25,12 @@
                 </td>
                 <td>@item.Price.ToString("0.00 NOK")</td>
                 <td>@item.Description</td>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+                <td>@item.Rooms</td>
+                <td>@item.Beds</td>
                 <td>
-                    <img src="@item.ImageUrl" alt="Item Image" class="uniform-image";/>
+                    <img src="@item.ImageUrl" alt="Item Image" style="max-width: 250px; height: auto;"/>
                 </td>
                 <td>
                     <a asp-action="Update" asp-route-id="@item.ItemId">Update</a>
