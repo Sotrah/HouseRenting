@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace MyShop.Models
@@ -32,8 +33,12 @@ namespace MyShop.Models
         public string? Beds { get; set; }
 
         public string? ImageUrl { get; set; }
+
         // navigation property
         public virtual List<OrderItem>? OrderItems { get; set; }
+
+        // 
+        public virtual ICollection<Booking>? Bookings { get; set; } = new List<Booking>();
     }
 }
 

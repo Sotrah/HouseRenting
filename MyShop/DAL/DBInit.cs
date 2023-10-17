@@ -108,6 +108,24 @@ public static class DBInit
             context.AddRange(items);
             context.SaveChanges();
         }
+        if (!context.Bookings.Any())
+        {
+            var bookings = new List<Booking>
+            {
+                new Booking
+                {
+                    ItemId = 1,
+                    BookingDate = new DateTime(2023, 10, 25),  // Example booked date
+                },
+                new Booking
+                {
+                    ItemId = 2,
+                    BookingDate = new DateTime(2023, 10, 30)   // Another example booked date
+                },
+            };
+            context.AddRange(bookings);
+            context.SaveChanges();
+        }
 
         if (!context.Customers.Any())
         {

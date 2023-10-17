@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyShop.DAL;
 
@@ -10,9 +11,11 @@ using MyShop.DAL;
 namespace MyShop.Migrations
 {
     [DbContext(typeof(ItemDbContext))]
-    partial class ItemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231010135016_ShopDbExpandedBooking")]
+    partial class ShopDbExpandedBooking
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,17 +222,17 @@ namespace MyShop.Migrations
 
             modelBuilder.Entity("MyShop.Models.Booking", b =>
                 {
-                    b.Property<int>("BookingId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("BookingDate")
+                    b.Property<DateTime>("DateTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ItemId")
+                    b.Property<int?>("ItemId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("BookingId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ItemId");
 
@@ -383,13 +386,9 @@ namespace MyShop.Migrations
 
             modelBuilder.Entity("MyShop.Models.Booking", b =>
                 {
-                    b.HasOne("MyShop.Models.Item", "Item")
+                    b.HasOne("MyShop.Models.Item", null)
                         .WithMany("Bookings")
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Item");
+                        .HasForeignKey("ItemId");
                 });
 
             modelBuilder.Entity("MyShop.Models.Order", b =>
