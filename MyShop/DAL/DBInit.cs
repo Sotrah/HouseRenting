@@ -22,19 +22,6 @@ public static class DBInit
                     Price = 150,
                     Description = "Delicious Italian dish with a thin crust topped with tomato sauce, cheese, and various toppings.",
                     ImageUrl = "/images/pizza.jpg",
-                    BookedDates = new List<BookedDate>
-                    {
-                        // Add booked dates here
-                        new BookedDate
-                        {
-                            DateTime = new DateTime(2023, 10, 15),  // Example booked date
-                        },
-                        new BookedDate
-                        {
-                            DateTime = new DateTime(2023, 10, 22)   // Another example booked date
-                        }
-
-                    }
                 },
                 new Item
                 {
@@ -87,6 +74,24 @@ public static class DBInit
                 },
             };
             context.AddRange(items);
+            context.SaveChanges();
+        }
+        if (!context.Bookings.Any())
+        {
+            var bookings = new List<Booking>
+            {
+                new Booking
+                {
+                    ItemId = 1,
+                    BookingDate = new DateTime(2023, 10, 25),  // Example booked date
+                },
+                new Booking
+                {
+                    ItemId = 2,
+                    BookingDate = new DateTime(2023, 10, 30)   // Another example booked date
+                },
+            };
+            context.AddRange(bookings);
             context.SaveChanges();
         }
 

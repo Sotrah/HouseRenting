@@ -11,8 +11,8 @@ using MyShop.DAL;
 namespace MyShop.Migrations
 {
     [DbContext(typeof(ItemDbContext))]
-    [Migration("20231010135016_ShopDbExpandedBookedDate")]
-    partial class ShopDbExpandedBookedDate
+    [Migration("20231010135016_ShopDbExpandedBooking")]
+    partial class ShopDbExpandedBooking
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -220,7 +220,7 @@ namespace MyShop.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MyShop.Models.BookedDate", b =>
+            modelBuilder.Entity("MyShop.Models.Booking", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -236,7 +236,7 @@ namespace MyShop.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("BookedDates");
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("MyShop.Models.Customer", b =>
@@ -384,10 +384,10 @@ namespace MyShop.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MyShop.Models.BookedDate", b =>
+            modelBuilder.Entity("MyShop.Models.Booking", b =>
                 {
                     b.HasOne("MyShop.Models.Item", null)
-                        .WithMany("BookedDates")
+                        .WithMany("Bookings")
                         .HasForeignKey("ItemId");
                 });
 
@@ -428,7 +428,7 @@ namespace MyShop.Migrations
 
             modelBuilder.Entity("MyShop.Models.Item", b =>
                 {
-                    b.Navigation("BookedDates");
+                    b.Navigation("Bookings");
 
                     b.Navigation("OrderItems");
                 });

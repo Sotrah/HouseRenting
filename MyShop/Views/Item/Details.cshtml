@@ -18,22 +18,24 @@
 
 @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
 <script>
-    var notFormattedDates = @Html.Raw(Json.Serialize(Model.BookedDates));
+    var notFormattedDates = @Html.Raw(Json.Serialize(Model.Bookings));
+
     // Dummy date, because the calendar doesn't want to accept an empty list
-    var bookedDates = ["1999-12-12"];
-    // Loop through the notFormattedDates, format them, add to bookedDates
+    var Bookings = ["1999-12-12"];
+
+    // Loop through the notFormattedDates, format them, add to Bookings
     for (var i = 0; i < notFormattedDates.length; i++) {
-        var date = notFormattedDates[i].dateTime.split("T")[0];
-        bookedDates.push(date);
+        var date = notFormattedDates[i].bookingDate.split("T")[0];
+        Bookings.push(date);
     }
-    //var bookedDates = ["2023-10-30", "2023-10-21", "2023-10-11", new Date(2025, 4, 9)],
+
     const datePicker = flatpickr("#datePicker", {
         // Configure options here
         inline: true,
         mode: "range",
         minDate: "today",
         dateFormat: "Y-m-d",
-        disable: bookedDates,
+        disable: Bookings,
     //    disable: ["2023-10-30", "2023-10-21", "2023-10-11", new Date(2025, 4, 9)],
     });
 </script>

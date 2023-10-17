@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MyShop.Migrations
 {
     /// <inheritdoc />
-    public partial class ShopDbExpandedBookedDate : Migration
+    public partial class ShopDbExpandedBooking : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "BookedDates",
+                name: "Bookings",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -22,17 +22,17 @@ namespace MyShop.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookedDates", x => x.Id);
+                    table.PrimaryKey("PK_Bookings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BookedDates_Items_ItemId",
+                        name: "FK_Bookings_Items_ItemId",
                         column: x => x.ItemId,
                         principalTable: "Items",
                         principalColumn: "ItemId");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookedDates_ItemId",
-                table: "BookedDates",
+                name: "IX_Bookings_ItemId",
+                table: "Bookings",
                 column: "ItemId");
         }
 
@@ -40,7 +40,7 @@ namespace MyShop.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BookedDates");
+                name: "Bookings");
         }
     }
 }
