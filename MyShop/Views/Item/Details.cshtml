@@ -15,8 +15,17 @@
         <h5>Beds: @Model.Beds</h5>
         <p><a href="/Item/Table">Back to Table View</a></p>
         <p><a href="/Item/Grid">Back to Grid View</a></p>
-        @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
-        <p><input type="text" id="datePicker"></p>
+
+        <form asp-controller="Booking" asp-action="CreateBooking">
+            @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
+            <div class="form-group">
+                <p><input type="text" placeholder="Select Date.." id="datePicker"></p>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="itemId" value="@Model.ItemId" />
+            </div>
+            <button type="submit" class="btn btn-primary">Book Stay</button>
+        </form>
     </div>
 </div>
 
@@ -35,11 +44,10 @@
 
     const datePicker = flatpickr("#datePicker", {
         // Configure options here
-        inline: true,
-        mode: "range",
+        // inline: true,
+        // mode: "range",
         minDate: "today",
         dateFormat: "Y-m-d",
         disable: Bookings,
-    //    disable: ["2023-10-30", "2023-10-21", "2023-10-11", new Date(2025, 4, 9)],
     });
 </script>
