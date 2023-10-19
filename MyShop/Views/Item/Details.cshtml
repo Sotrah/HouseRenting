@@ -19,7 +19,7 @@
         <form asp-controller="Booking" asp-action="CreateBooking">
             @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
             <div class="form-group">
-                <p><input type="text" placeholder="Select Date.." id="datePicker"></p>
+                <p><input type="text" name="bookingDate" placeholder="Select Date.." id="datePicker" data-date-format="Y-m-d"></p>
             </div>
             <div class="form-group">
                 <input type="hidden" name="itemId" value="@Model.ItemId" />
