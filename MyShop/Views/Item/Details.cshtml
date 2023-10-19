@@ -7,12 +7,12 @@
 <div class="row gx-5">
     <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid col-5" style="height: 300px; object-fit: contain" />
     <div class="col-7">
-        <h5>@Model.Description</h5>
-        <h3 class="pull-right">@Model.Price.ToString("0.00 NOK per night")</h3>
-        <h5>@Model.Address</h5>
-        <h5>Phone number: @Model.Phone</h5>
-        <h5>Rooms: @Model.Rooms</h5>
-        <h5>Beds: @Model.Beds</h5>
+        <p>@Model.Description</p>
+        <h3 class="pull-right">@Model.Price.ToString("0 NOK per night")</h3>
+        <p>@Model.Address<br />
+            Phone number: @Model.Phone<br />
+            Rooms: @Model.Rooms<br />
+            Beds: @Model.Beds</p>
         <p><a href="/Item/Table">Back to Table View</a></p>
         <p><a href="/Item/Grid">Back to Grid View</a></p>
 
