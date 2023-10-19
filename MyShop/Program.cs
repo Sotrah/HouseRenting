@@ -20,10 +20,10 @@ builder.Services.AddDbContext<ItemDbContext>(options => {
         builder.Configuration["ConnectionStrings:ItemDbContextConnection"]);
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>()
+builder.Services.AddDefaultIdentity<CustomerUser>()
     .AddEntityFrameworkStores<ItemDbContext>();
 
-//builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+//builder.Services.AddIdentity<CustomerUser, IdentityRole>(options =>
 //{
 //    // Password settings
 //    options.Password.RequireDigit = true;
