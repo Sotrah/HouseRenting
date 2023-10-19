@@ -85,8 +85,14 @@ app.UseAuthorization();
 
 app.UseAuthentication();
 
-app.MapDefaultControllerRoute();
+// app.MapDefaultControllerRoute();
+// changed to load the item grid instead of index
 
 app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Item}/{action=Grid}/{id?}"
+);
 
 app.Run();

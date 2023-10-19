@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Booking>
+
+<h1>List of Bookings</h1>
+
+@foreach (var booking in Model)
+{
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+        <div class="container">
+            <h5>Booking @booking.BookingId </h5>
+            <div>
+                <table class='table table-striped' style='max-width: 1200px;'>
+                    <tr class="table-header">
+                        <th>Item</th>
+                        <th>BookingDate</th>
+                    </tr>
+                    <tr>
+                        <td>@booking.ItemId</td>
+                        <td>@booking.BookingDate</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        @*<partial name="_BookingItemTable" model="booking.BookingItems" />*@
+    </div>
+}
