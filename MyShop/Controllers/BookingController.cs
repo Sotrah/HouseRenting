@@ -5,15 +5,21 @@ using MyShop.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using MyShop.DAL;
+using Microsoft.AspNetCore.Identity;
+
 namespace MyShop.Controllers;
 
 public class BookingController : Controller
+
 {
     private readonly ItemDbContext _itemDbContext;
+    private readonly UserManager<CustomerUser> _userManager; // Inject UserManager
 
-    public BookingController(ItemDbContext itemDbContext)
+
+    public BookingController(ItemDbContext itemDbContext, UserManager<CustomerUser> userManager)
     {
         _itemDbContext = itemDbContext;
+        _userManager = userManager;
     }
 
     public async Task<IActionResult> Table()
@@ -35,11 +41,17 @@ public class BookingController : Controller
                 return BadRequest("Item not found.");
             }
 
+
+            var user = await _userManager.GetUserAsync(User);
+            string userId = user.Id;
+
             var newBooking = new Booking
             {
                 BookingDate = booking.BookingDate,
                 ItemId = booking.ItemId,
                 Item = newItem,
+                UserId = userId,
+                CustomerUser = user,
             };
 
             _itemDbContext.Bookings.Add(newBooking);

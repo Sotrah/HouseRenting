@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MyShop.Models;
 namespace MyShop.DAL;
 
-public class ItemDbContext : IdentityDbContext  
+public class ItemDbContext : IdentityDbContext<CustomerUser>
 {
     public ItemDbContext(DbContextOptions<ItemDbContext> options) : base(options)
     {
@@ -23,6 +23,13 @@ public class ItemDbContext : IdentityDbContext
             .HasOne(b => b.Item)
             .WithMany(i => i.Bookings)
             .HasForeignKey(b => b.ItemId);
+
+        // Configuration for the relationship between Booking and User
+        modelBuilder.Entity<Booking>()
+            .HasOne(b => b.CustomerUser)           // Booking has one User
+            .WithMany(u => u.Bookings)      // User can have many Bookings
+            .HasForeignKey(b => b.UserId);  // Booking's UserId is the foreign key
+
 
         base.OnModelCreating(modelBuilder);
     }

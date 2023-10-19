@@ -1,4 +1,8 @@
-﻿@model Item
+﻿@using Microsoft.AspNetCore.Identity
+
+@model Item
+@inject UserManager<CustomerUser> UserManager
+
 
 <h3 class="my-5">
     @Model.Name
@@ -9,10 +13,12 @@
     <div class="col-7">
         <p>@Model.Description</p>
         <h3 class="pull-right">@Model.Price.ToString("0 NOK per night")</h3>
-        <p>@Model.Address<br />
+        <p>
+            @Model.Address<br />
             Phone number: @Model.Phone<br />
             Rooms: @Model.Rooms<br />
-            Beds: @Model.Beds</p>
+            Beds: @Model.Beds
+        </p>
         <p><a href="/Item/Table">Back to Table View</a></p>
         <p><a href="/Item/Grid">Back to Grid View</a></p>
 
@@ -24,6 +30,9 @@
             <div class="form-group">
                 <input type="hidden" name="itemId" value="@Model.ItemId" />
             </div>
+            @*<div class="form-group">
+                <input type="hidden" name="userId" value="@UserManager.GetUserId(User)" />
+            </div>*@
             <button type="submit" class="btn btn-primary">Book Stay</button>
         </form>
     </div>
