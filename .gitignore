@@ -367,3 +367,5 @@ MyShop/.DS_Store
 .DS_Store
 MyShop/.DS_Store
 .DS_Store
+MyShop/ItemDatabase.db-shm
+MyShop/ItemDatabase.db-wal
