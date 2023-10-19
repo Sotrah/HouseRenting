@@ -7,6 +7,10 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp asp-controller="Item"
+               asp-action="Create">Create New Listing</a>
+    </li>
+    <li class="nav-item">
         <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
     </li>
     <li class="nav-item">

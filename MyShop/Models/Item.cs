@@ -8,7 +8,7 @@ namespace MyShop.Models
     {
         public int ItemId { get; set; }
 
-        [RegularExpression(@"[0-9a-zA-ZæøåÆØÅ. \-]{2,20}", ErrorMessage = "The Name must be numbers or letters and between 2 to 20 characters.")]
+        [RegularExpression(@"[0-9a-zA-ZæøåÆØÅ.' \-]{2,20}", ErrorMessage = "The Name must be numbers or letters and between 2 to 20 characters.")]
         [Display(Name = "Item name")]
         public string Name { get; set; } = string.Empty;
 
@@ -16,7 +16,7 @@ namespace MyShop.Models
         [Display(Name = "Price per night")]
         public decimal Price { get; set; }
 
-        [StringLength(200)]
+        [StringLength(600)]
         public string? Description { get; set; }
 
         [StringLength(100)]
