@@ -5,14 +5,14 @@
         <img src="@Model.ImageUrl" class="card-img-top" style="height: 40vh; object-fit: cover;" alt="@Model.Name">
         <div class="mt-2">
             <div class="d-flex justify-content-between">
-                <h6 class="text-start">
+                <p class="text-start">
                     <a class="link-color" asp-controller="Item"
                        asp-action="Details"
                        asp-route-id="@Model.ItemId">@Model.Name</a>
-                </h6>
-                <h6 class="text-nowrap">
+                </p>
+                <p class="text-nowrap text">
                     @Model.Price.ToString("0 NOK per night")
-                </h6>
+                </p>
             </div>
         </div>
     </div>

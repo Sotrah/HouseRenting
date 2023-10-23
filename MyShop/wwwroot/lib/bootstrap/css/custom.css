@@ -14,15 +14,35 @@
 
 /* Example: If you want to modify the primary button color */
 .btn-primary {
-    background-color: #7D8C5F; /* Replace with your desired color */
+    background-color: #7D8C5F;
+    font-family: 'Oranienbaum', serif;
 }
 
 .custom-navbar {
-    background-color: #D2D7C6 !important;
+    background-color: #7D8C5F !important;
+}
+
+.box {
+    background-color: #ECEEE5;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+    font-family: 'Oranienbaum', serif;
+}
+
+.table-text {
+    font-family: 'Oranienbaum', serif, bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oranienbaum', serif;
 }
 
 .link-color, .link-color:visited, .link-color:hover, .link-color:active {
     color: #7D8C5F;
+    font-family: 'Oranienbaum', serif;
 }
 
 /* Example: To style a specific class of images */

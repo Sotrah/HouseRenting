@@ -69,43 +69,38 @@ public class ItemController : Controller
     {
         if (ModelState.IsValid)
         {
-            if (model.ImageUpload != null && model.ImageUpload.Length > 0)
-            {
-                var filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", model.ImageUpload.FileName);
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await model.ImageUpload.CopyToAsync(stream);
-                }
+            var imageUrl = await UploadImage(model.ImageUpload);
+            var imageUrl2 = await UploadImage(model.ImageUpload2);
+            var imageUrl3 = await UploadImage(model.ImageUpload3);
 
-                // Convert model to Item type
-                var item = new Item
-                {
-                    // Assign all other properties from model to item...
-                    Name = model.Name,
-                    Price = model.Price,
-                    Description = model.Description,
-                    Address = model.Address,
-                    Phone = model.Phone,
-                    Rooms = model.Rooms,
-                    Beds = model.Beds,
-                    Guests = model.Guests,
-                    Baths = model.Baths,
-                    ImageUrl = "/images/" + model.ImageUpload.FileName // ImageUrl gets the path of uploaded image
-                };
-
-                bool returnOk = await _itemRepository.Create(item);
-                if (returnOk)
-                    return RedirectToAction(nameof(Table));
-
-                return View(model);
-            }
-            else
+            if (imageUrl == null)
             {
                 ModelState.AddModelError("ImageUpload", "Please upload an image.");
                 return View(model);
             }
+            var item = new Item
+            {
+                Name = model.Name,
+                Price = model.Price,
+                Description = model.Description,
+                Address = model.Address,
+                Phone = model.Phone,
+                Rooms = model.Rooms,
+                Beds = model.Beds,
+                Guests = model.Guests,
+                Baths = model.Baths,
+                ImageUrl = imageUrl,
+                ImageUrl2 = imageUrl2,
+                ImageUrl3 = imageUrl3,
+            };
+
+            bool returnOk = await _itemRepository.Create(item);
+            if (returnOk)
+                return RedirectToAction(nameof(Table));
+
+            return View(model);
         }
-        return View(model);  // Dette vil fange opp alle andre scenarier
+        return View(model); // This will catch all other scenarios
     }
 
     [HttpGet]
@@ -123,39 +118,30 @@ public class ItemController : Controller
 
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> Update(Item item, IFormFile ImageUpload)
+    public async Task<IActionResult> Update(Item item, IFormFile ImageUpload, IFormFile ImageUpload2, IFormFile ImageUpload3)
     {
         if (ModelState.IsValid)
         {
-            var uploadedImage = Request.Form.Files.FirstOrDefault();
-
-            if (uploadedImage != null && uploadedImage.Length > 0)
+            if (ImageUpload != null && ImageUpload.Length > 0)
             {
-                var filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", uploadedImage.FileName);
-
-                // Sjekker om filen allerede eksisterer og legger til en unik identifikator for å unngå overskriving
-                var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(uploadedImage.FileName);
-                var fileExtension = Path.GetExtension(uploadedImage.FileName);
-                var counter = 1;
-
-                while (System.IO.File.Exists(filePath))
-                {
-                    var tempFileName = $"{fileNameWithoutExtension}_{counter}{fileExtension}";
-                    filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", tempFileName);
-                    counter++;
-                }
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await uploadedImage.CopyToAsync(stream);
-                }
-
-                item.ImageUrl = "/images/" + Path.GetFileName(filePath);
+                item.ImageUrl = await UploadImage(ImageUpload);
             }
+
+            if (ImageUpload2 != null && ImageUpload2.Length > 0)
+            {
+                item.ImageUrl2 = await UploadImage(ImageUpload2);
+            }
+
+            if (ImageUpload3 != null && ImageUpload3.Length > 0)
+            {
+                item.ImageUrl3 = await UploadImage(ImageUpload3);
+            }
+
             bool returnOk = await _itemRepository.Update(item);
             if (returnOk)
                 return RedirectToAction(nameof(Table));
         }
+
         _logger.LogWarning("[ItemController] Item update failed {@item}", item);
         return View(item);
     }
@@ -184,5 +170,17 @@ public class ItemController : Controller
             return BadRequest("Item deletion failed");
         }
         return RedirectToAction(nameof(Table));
+    }
+    private async Task<string> UploadImage(IFormFile imageFile)
+    {
+        if (imageFile == null || imageFile.Length == 0) return null;
+
+        var filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", imageFile.FileName);
+        using (var stream = new FileStream(filePath, FileMode.Create))
+        {
+            await imageFile.CopyToAsync(stream);
+        }
+
+        return "/images/" + imageFile.FileName;
     }
 }

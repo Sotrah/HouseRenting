@@ -16,5 +16,7 @@ namespace MyShop.ViewModels
         public string? Baths { get; set; }
 
         public IFormFile? ImageUpload { get; set; }  // For the image upload functionality
+        public IFormFile? ImageUpload2 { get; set; }
+        public IFormFile? ImageUpload3 { get; set; }
     }
 }

@@ -1,17 +1,32 @@
 ﻿@model Item
 
-<h3 class="my-5">
+<h3 class="my-5 text">
     @Model.Name
 </h3>
 
 <div class="row gx-5 justify-content-center">
-    <div class="col-12 text-center">
-        <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid mb-3" style="width: 50vw; object-fit: contain" />
+    @if (string.IsNullOrEmpty(Model.ImageUrl2) && string.IsNullOrEmpty(Model.ImageUrl3))
+    {
+        // Only the main image exists, center it
+        <div class="col-12 text-center text">
+            <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid mb-3" style="width: 50vw; object-fit: contain" />
         </div>
-        <div class="col-12 text-center">
+    }
+    else
+    {
+        // All three images exist, left align the main image, and stack the other two on the right
+        <div class="col-md-6 text-center text">
+            <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid mb-3" style="width: 50vw; object-fit: contain" />
+        </div>
+        <div class="col-md-6">
+            <img alt="@Model.Name" src="@Model.ImageUrl2" class="img-fluid mb-3" style="height: 25vw; object-fit: contain" />
+            <img alt="@Model.Name" src="@Model.ImageUrl3" class="img-fluid mb-3" style="height: 25vw; object-fit: contain" />
+        </div>
+    }
+        <div class="col-12 text-center text">
             <p>@Model.Description</p>
         </div>
-        <div class="col-md-6 left-text">
+        <div class="col-md-6 left-text text">
             <p>Guests: @Model.Guests <br/>
             Bedrooms: @Model.Rooms<br />
             Beds: @Model.Beds<br />
@@ -20,13 +35,13 @@
             Phone number: @Model.Phone <br />
             Address: @Model.Address</p>
         </div>
-        <div class="col-md-6 d-flex justify-content-end right-box">
-            <div class="border p-4" style="display: inline-block;">
+        <div class="col-md-6 d-flex justify-content-end right-box text">
+            <div class="border p-4 box" style="display: inline-block;">
                 <h3>@Model.Price.ToString("0 NOK per night")</h3>
 
                 <form asp-controller="Booking" asp-action="CreateBooking">
                     @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
-                    <div class="form-group">
+                    <div class="form-group text">
                         <p><input type="text" name="bookingDate" placeholder="Select Date.." id="datePicker" data-date-format="Y-m-d"></p>
                     </div>
                     <div class="form-group">
