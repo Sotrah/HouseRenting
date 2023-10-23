@@ -29,7 +29,9 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "12",
                     Beds = "6",
-                    ImageUrl = "/images/dnd26.png"
+                    ImageUrl = "/images/dnd26.png",
+                    ImageUrl2 = "/images/Image2.4.png",
+                    ImageUrl3 = "/images/Image2.0.png"
                 },
                 new Item
                 {

@@ -11,22 +11,33 @@
 <div class="row gx-5 justify-content-center">
     @if (string.IsNullOrEmpty(Model.ImageUrl2) && string.IsNullOrEmpty(Model.ImageUrl3))
     {
-        // Only the main image exists, center it
-        <div class="col-12 text-center text">
-            <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid mb-3" style="width: 50vw; object-fit: contain" />
+        <!-- Only one image, so it's centered -->
+        <div class="col-md-12 text-center text image-container">
+            <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid single-image" />
         </div>
     }
     else
     {
-        // All three images exist, left align the main image, and stack the other two on the right
-        <div class="col-md-6 text-center text">
-            <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid mb-3" style="width: 50vw; object-fit: contain" />
-        </div>
-        <div class="col-md-6">
-            <img alt="@Model.Name" src="@Model.ImageUrl2" class="img-fluid mb-3" style="height: 25vw; object-fit: contain" />
-            <img alt="@Model.Name" src="@Model.ImageUrl3" class="img-fluid mb-3" style="height: 25vw; object-fit: contain" />
+        <div class="col-md-12 d-flex image-container">
+            <!-- Main image to the left -->
+            <div class="main-image-wrapper">
+                <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid main-image" />
+            </div>
+
+            <!-- Additional images on the right -->
+            <div class="additional-images-wrapper">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl2))
+                {
+                    <img alt="@Model.Name" src="@Model.ImageUrl2" class="img-fluid additional-image" />
+                }
+                @if (!string.IsNullOrEmpty(Model.ImageUrl3))
+                {
+                    <img alt="@Model.Name" src="@Model.ImageUrl3" class="img-fluid additional-image" />
+                }
+            </div>
         </div>
     }
+
         <div class="col-12 text-center text">
             <p>@Model.Description</p>
         </div>
@@ -79,3 +90,5 @@
         disable: Bookings,
     });
 </script>
+
+</div>
