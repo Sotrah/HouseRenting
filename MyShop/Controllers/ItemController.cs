@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using MyShop.DAL;
 using MyShop.Models;
 using MyShop.ViewModels;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MyShop.Controllers;
 
@@ -10,11 +12,13 @@ public class ItemController : Controller
 {
     private readonly IItemRepository _itemRepository;
     private readonly ILogger<ItemController> _logger;
+    private readonly IWebHostEnvironment _hostEnvironment;
 
-    public ItemController(IItemRepository itemRepository, ILogger<ItemController> logger)
+    public ItemController(IItemRepository itemRepository, ILogger<ItemController> logger, IWebHostEnvironment hostEnvironment)
     {
         _itemRepository = itemRepository;
         _logger = logger;
+        _hostEnvironment = hostEnvironment;
     }
 
     public async Task<IActionResult> Table()
@@ -61,16 +65,45 @@ public class ItemController : Controller
 
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> Create(Item item)
+    public async Task<IActionResult> Create(ItemCreateViewModel model)
     {
         if (ModelState.IsValid)
         {
-            bool returnOk = await _itemRepository.Create(item);
-            if (returnOk)
-                return RedirectToAction(nameof(Table));
+            if (model.ImageUpload != null && model.ImageUpload.Length > 0)
+            {
+                var filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", model.ImageUpload.FileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await model.ImageUpload.CopyToAsync(stream);
+                }
+
+                // Convert model to Item type
+                var item = new Item
+                {
+                    // Assign all other properties from model to item...
+                    Name = model.Name,
+                    Price = model.Price,
+                    Description = model.Description,
+                    Address = model.Address,
+                    Phone = model.Phone,
+                    Rooms = model.Rooms,
+                    Beds = model.Beds,
+                    ImageUrl = "/images/" + model.ImageUpload.FileName // ImageUrl gets the path of uploaded image
+                };
+
+                bool returnOk = await _itemRepository.Create(item);
+                if (returnOk)
+                    return RedirectToAction(nameof(Table));
+
+                return View(model);
+            }
+            else
+            {
+                ModelState.AddModelError("ImageUpload", "Please upload an image.");
+                return View(model);
+            }
         }
-        _logger.LogWarning("[ItemController] Item creation failed {@item}", item);
-        return View(item);
+        return View(model);  // Dette vil fange opp alle andre scenarier
     }
 
     [HttpGet]
@@ -88,10 +121,35 @@ public class ItemController : Controller
 
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> Update(Item item)
+    public async Task<IActionResult> Update(Item item, IFormFile ImageUpload)
     {
         if (ModelState.IsValid)
         {
+            var uploadedImage = Request.Form.Files.FirstOrDefault();
+
+            if (uploadedImage != null && uploadedImage.Length > 0)
+            {
+                var filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", uploadedImage.FileName);
+
+                // Sjekker om filen allerede eksisterer og legger til en unik identifikator for å unngå overskriving
+                var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(uploadedImage.FileName);
+                var fileExtension = Path.GetExtension(uploadedImage.FileName);
+                var counter = 1;
+
+                while (System.IO.File.Exists(filePath))
+                {
+                    var tempFileName = $"{fileNameWithoutExtension}_{counter}{fileExtension}";
+                    filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", tempFileName);
+                    counter++;
+                }
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await uploadedImage.CopyToAsync(stream);
+                }
+
+                item.ImageUrl = "/images/" + Path.GetFileName(filePath);
+            }
             bool returnOk = await _itemRepository.Update(item);
             if (returnOk)
                 return RedirectToAction(nameof(Table));
