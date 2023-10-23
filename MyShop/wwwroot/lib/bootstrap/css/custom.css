@@ -1,0 +1,33 @@
+﻿/* Custom styles for the project */
+
+/* Enhance the padding inside the bordered box */
+.border-padded {
+    padding: 20px; /* Or any other desired value */
+}
+
+/* To pull content closer to each other */
+.pull-content-closer {
+    margin-right: -15px; /* Adjust as needed. Negative margins can pull content closer. */
+}
+
+/* Add any other custom styles you need */
+
+/* Example: If you want to modify the primary button color */
+.btn-primary {
+    background-color: #7D8C5F; /* Replace with your desired color */
+}
+
+.custom-navbar {
+    background-color: #D2D7C6 !important;
+}
+
+.link-color, .link-color:visited, .link-color:hover, .link-color:active {
+    color: #7D8C5F;
+}
+
+/* Example: To style a specific class of images */
+.my-custom-image {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}

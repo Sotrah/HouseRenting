@@ -11,24 +11,31 @@
         <div class="col-12 text-center">
             <p>@Model.Description</p>
         </div>
-        <div class="col-md-6">
-        <h3 class="pull-right">@Model.Price.ToString("0 NOK per night")</h3>
-        <p>@Model.Address<br />
-            Phone number: @Model.Phone<br />
-            Rooms: @Model.Rooms<br />
-            Beds: @Model.Beds</p>
+        <div class="col-md-6 left-text">
+            <p>Guests: @Model.Guests <br/>
+            Bedrooms: @Model.Rooms<br />
+            Beds: @Model.Beds<br />
+            Baths: @Model.Baths <br/>
+            <br/>
+            Phone number: @Model.Phone <br />
+            Address: @Model.Address</p>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end right-box">
+            <div class="border p-4" style="display: inline-block;">
+                <h3>@Model.Price.ToString("0 NOK per night")</h3>
 
-        <form asp-controller="Booking" asp-action="CreateBooking">
-            @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
-            <div class="form-group">
-                <p><input type="text" name="bookingDate" placeholder="Select Date.." id="datePicker" data-date-format="Y-m-d"></p>
+                <form asp-controller="Booking" asp-action="CreateBooking">
+                    @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
+                    <div class="form-group">
+                        <p><input type="text" name="bookingDate" placeholder="Select Date.." id="datePicker" data-date-format="Y-m-d"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="itemId" value="@Model.ItemId" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Book Stay</button>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="hidden" name="itemId" value="@Model.ItemId" />
-            </div>
-            <button type="submit" class="btn btn-primary">Book Stay</button>
-        </form>
-    </div>
+        </div>
 </div>
 
 @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@

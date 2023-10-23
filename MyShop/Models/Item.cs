@@ -12,9 +12,9 @@ namespace MyShop.Models
         [Display(Name = "Item name")]
         public string Name { get; set; } = string.Empty;
 
-        [Range(0.01, double.MaxValue, ErrorMessage = "The Price must be greater than 0.")]
+        [Range(1, int.MaxValue, ErrorMessage = "The Price must be greater than 0.")]
         [Display(Name = "Price per night")]
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
         [StringLength(600)]
         public string? Description { get; set; }
@@ -31,6 +31,12 @@ namespace MyShop.Models
 
         [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
         public string? Beds { get; set; }
+
+        [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
+        public string? Guests { get; set; }
+
+        [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
+        public string? Baths { get; set; }
 
         public string? ImageUrl { get; set; }
 

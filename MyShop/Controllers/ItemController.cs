@@ -88,6 +88,8 @@ public class ItemController : Controller
                     Phone = model.Phone,
                     Rooms = model.Rooms,
                     Beds = model.Beds,
+                    Guests = model.Guests,
+                    Baths = model.Baths,
                     ImageUrl = "/images/" + model.ImageUpload.FileName // ImageUrl gets the path of uploaded image
                 };
 
