@@ -1,4 +1,5 @@
-@inject SignInManager<IdentityUser> SignInManager
+@using MyShop.Models
+@inject SignInManager<CustomerUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

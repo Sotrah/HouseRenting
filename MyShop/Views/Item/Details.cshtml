@@ -1,4 +1,8 @@
-﻿@model Item
+﻿@using Microsoft.AspNetCore.Identity
+
+@model Item
+@inject UserManager<CustomerUser> UserManager
+
 
 <h3 class="my-5 text">
     @Model.Name
