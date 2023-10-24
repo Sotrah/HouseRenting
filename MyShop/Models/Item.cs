@@ -42,9 +42,6 @@ namespace MyShop.Models
         public string? ImageUrl2 { get; set; }
         public string? ImageUrl3 { get; set; }
 
-        // navigation property
-        public virtual List<OrderItem>? OrderItems { get; set; }
-
         // 
         public virtual ICollection<Booking>? Bookings { get; set; } = new List<Booking>();
     }

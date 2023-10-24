@@ -14,13 +14,11 @@
     <None Remove="Views\Home\" />
     <None Remove="Views\Shared\" />
     <None Remove="ViewModels\" />
-    <None Remove="Views\Order\" />
     <None Remove="DAL\" />
     <None Remove="Logs\" />
     <None Remove="Migrations\" />
     <None Remove="Views\Booking\" />
     <None Remove="Views\CustomerUser\" />
-    <None Remove="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -29,13 +27,11 @@
     <Folder Include="Views\Item\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="DAL\" />
     <Folder Include="Logs\" />
     <Folder Include="Migrations\" />
     <Folder Include="Views\Booking\" />
     <Folder Include="Views\CustomerUser\" />
-    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />

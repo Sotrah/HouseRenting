@@ -11,10 +11,7 @@ public class ItemDbContext : IdentityDbContext<CustomerUser>
     }
 
     public DbSet<Item> Items { get; set; }
-    public DbSet<Customer> Customers { get; set; }
     public DbSet<CustomerUser> CustomerUsers { get; set; }
-    public DbSet<Order> Orders { get; set; }
-    public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<Booking> Bookings { get; set; }
 
     // Connect the items and bookings with a one to many relationship.
