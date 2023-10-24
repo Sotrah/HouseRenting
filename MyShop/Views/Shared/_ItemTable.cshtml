@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Item>
 
 <div class="container">
-    <table class='table table-striped'>
+    <table class='table table-striped table-text'>
         <tr>
             <th>Id</th>
             <th>Name</th>
@@ -19,7 +19,7 @@
             <tr>
                 <td>@item.ItemId</td>
                 <td>
-                    <a asp-controller="Item"
+                    <a class="link-color" asp-controller="Item"
                        asp-action="Details"
                        asp-route-id="@item.ItemId">@item.Name</a>
                 </td>
@@ -33,8 +33,8 @@
                     <img src="@item.ImageUrl" alt="Item Image" style="max-width: 250px; height: auto;"/>
                 </td>
                 <td>
-                    <a asp-action="Update" asp-route-id="@item.ItemId">Update</a>
-                    <a asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
+                    <a class="link-color" asp-action="Update" asp-route-id="@item.ItemId">Update</a>
+                    <a class="link-color" asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
                 </td>
             </tr>
         }
