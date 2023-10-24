@@ -4,6 +4,7 @@ using MyShop.Models;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MyShop.DAL;
 
@@ -125,6 +126,18 @@ public static class DBInit
             context.AddRange(items);
             context.SaveChanges();
         }
+
+        if (!context.CustomerUsers.Any())
+        {
+            var customers = new List<CustomerUser>
+            {
+                new CustomerUser { Email = "AliceHansen@test1.test", PasswordHash = "1234"},
+                new CustomerUser { Email = "BobJohansen@test2.test", PasswordHash = "2345"},
+            };
+            context.AddRange(customers);
+            context.SaveChanges();
+        }
+
         if (!context.Bookings.Any())
         {
             var bookings = new List<Booking>
@@ -142,54 +155,7 @@ public static class DBInit
             };
             context.AddRange(bookings);
             context.SaveChanges();
-        }
-
-        if (!context.Customers.Any())
-        {
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Alice Hansen", Address = "Osloveien 1"},
-                new Customer { Name = "Bob Johansen", Address = "Oslomet gata 2"},
-            };
-            context.AddRange(customers);
-            context.SaveChanges();
-        }
-
-        if (!context.Orders.Any())
-        {
-            var orders = new List<Order>
-            {
-                new Order {OrderDate = DateTime.Today.ToString("dd-MM-yyyy"), CustomerId = 1,},
-                new Order {OrderDate = DateTime.Today.AddDays(-1).ToString("dd-MM-yyyy"), CustomerId = 2,},
-            };
-            context.AddRange(orders);
-            context.SaveChanges();
-        }
-
-        if (!context.OrderItems.Any())
-        {
-            var orderItems = new List<OrderItem>
-            {
-                new OrderItem { ItemId = 1, Quantity = 2, OrderId = 1},
-                new OrderItem { ItemId = 2, Quantity = 1, OrderId = 1},
-                new OrderItem { ItemId = 3, Quantity = 4, OrderId = 2},
-            };
-
-            foreach (var orderItem in orderItems)
-            {
-                var item = context.Items.Find(orderItem.ItemId);
-                orderItem.OrderItemPrice = orderItem.Quantity * item?.Price ?? 0;
-            }
-
-            context.AddRange(orderItems);
-            context.SaveChanges();
-        }
-
-        var ordersToUpdate = context.Orders.Include(o => o.OrderItems);
-        foreach (var order in ordersToUpdate)
-        {
-            order.TotalPrice = order.OrderItems?.Sum(oi => oi.OrderItemPrice) ?? 0;
-        }
-        context.SaveChanges();
+        } 
+       
     }
 }

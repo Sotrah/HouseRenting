@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CustomerUser>
+
+<div class="container">
+    <table class='table table-striped'>
+        <tr>
+            <th>Email</th>
+            <th>Orders</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Email</td>
+                <td>
+                    @if (@customer.Bookings != null)
+                    {
+                        <p>@string.Join(", ", @customer.Bookings.Select(booking => $"Booking{booking.BookingId}"))</p>
+                    }
+                </td>
+                <td></td>
+            </tr>
+        }
+    </table>
+</div>

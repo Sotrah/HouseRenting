@@ -54,6 +54,7 @@
             <div class="border p-4 box" style="display: inline-block;">
                 <h3>@Model.Price.ToString("0 NOK per night")</h3>
 
+                @*Booking form*@
                 <form asp-controller="Booking" asp-action="CreateBooking">
                     @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
                     <div class="form-group text">
