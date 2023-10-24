@@ -369,4 +369,7 @@ MyShop/.DS_Store
 .DS_Store
 MyShop/ItemDatabase.db-shm
 MyShop/ItemDatabase.db-wal
-*.db
+*.db-wal
+*.db-shm
+MyShop/ItemDatabase.db-wal
+MyShop/ItemDatabase.db-shm
