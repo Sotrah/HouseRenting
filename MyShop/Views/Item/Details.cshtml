@@ -4,38 +4,68 @@
 @inject UserManager<CustomerUser> UserManager
 
 
-<h3 class="my-5">
+<h3 class="my-5 text">
     @Model.Name
 </h3>
 
-<div class="row gx-5">
-    <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid col-5" style="height: 300px; object-fit: contain" />
-    <div class="col-7">
-        <p>@Model.Description</p>
-        <h3 class="pull-right">@Model.Price.ToString("0 NOK per night")</h3>
-        <p>
-            @Model.Address<br />
-            Phone number: @Model.Phone<br />
-            Rooms: @Model.Rooms<br />
-            Beds: @Model.Beds
-        </p>
-        <p><a href="/Item/Table">Back to Table View</a></p>
-        <p><a href="/Item/Grid">Back to Grid View</a></p>
+<div class="row gx-5 justify-content-center">
+    @if (string.IsNullOrEmpty(Model.ImageUrl2) && string.IsNullOrEmpty(Model.ImageUrl3))
+    {
+        <!-- Only one image, so it's centered -->
+        <div class="col-md-12 text-center text image-container">
+            <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid single-image" />
+        </div>
+    }
+    else
+    {
+        <div class="col-md-12 d-flex image-container">
+            <!-- Main image to the left -->
+            <div class="main-image-wrapper">
+                <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid main-image" />
+            </div>
 
-        <form asp-controller="Booking" asp-action="CreateBooking">
-            @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
-            <div class="form-group">
-                <p><input type="text" name="bookingDate" placeholder="Select Date.." id="datePicker" data-date-format="Y-m-d"></p>
+            <!-- Additional images on the right -->
+            <div class="additional-images-wrapper">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl2))
+                {
+                    <img alt="@Model.Name" src="@Model.ImageUrl2" class="img-fluid additional-image" />
+                }
+                @if (!string.IsNullOrEmpty(Model.ImageUrl3))
+                {
+                    <img alt="@Model.Name" src="@Model.ImageUrl3" class="img-fluid additional-image" />
+                }
             </div>
-            <div class="form-group">
-                <input type="hidden" name="itemId" value="@Model.ItemId" />
+        </div>
+    }
+
+        <div class="col-12 text-center text">
+            <p>@Model.Description</p>
+        </div>
+        <div class="col-md-6 left-text text">
+            <p>Guests: @Model.Guests <br/>
+            Bedrooms: @Model.Rooms<br />
+            Beds: @Model.Beds<br />
+            Baths: @Model.Baths <br/>
+            <br/>
+            Phone number: @Model.Phone <br />
+            Address: @Model.Address</p>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end right-box text">
+            <div class="border p-4 box" style="display: inline-block;">
+                <h3>@Model.Price.ToString("0 NOK per night")</h3>
+
+                <form asp-controller="Booking" asp-action="CreateBooking">
+                    @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
+                    <div class="form-group text">
+                        <p><input type="text" name="bookingDate" placeholder="Select Date.." id="datePicker" data-date-format="Y-m-d"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="itemId" value="@Model.ItemId" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Book Stay</button>
+                </form>
             </div>
-            @*<div class="form-group">
-                <input type="hidden" name="userId" value="@UserManager.GetUserId(User)" />
-            </div>*@
-            <button type="submit" class="btn btn-primary">Book Stay</button>
-        </form>
-    </div>
+        </div>
 </div>
 
 @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
@@ -60,3 +90,5 @@
         disable: Bookings,
     });
 </script>
+
+</div>

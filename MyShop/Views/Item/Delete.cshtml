@@ -31,8 +31,21 @@
         <dt class="col-sm-2">Beds</dt>
         <dd class="col-sm-10">@Model.Beds</dd>
 
+        <dt class="col-sm-2">Guests</dt>
+        <dd class="col-sm-10">@Model.Guests</dd>
+
+        <dt class="col-sm-2">Baths</dt>
+        <dd class="col-sm-10">@Model.Baths</dd>
+
         <dt class="col-sm-2">Image URL</dt>
         <dd class="col-sm-10">@Model.ImageUrl</dd>
+
+        <dt class="col-sm-2">Image URL</dt>
+        <dd class="col-sm-10">@Model.ImageUrl2</dd>
+
+        <dt class="col-sm-2">Image URL</dt>
+        <dd class="col-sm-10">@Model.ImageUrl3</dd>
+
     </dl>
 
     <form asp-action="DeleteConfirmed" asp-route-id="@Model.ItemId" method="post">
