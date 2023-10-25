@@ -4,15 +4,15 @@
 @inject UserManager<CustomerUser> UserManager
 
 
-<h3 class="my-5 text">
+<h3 class="my-2 text">
     @Model.Name
 </h3>
 
-<div class="row gx-5 justify-content-center">
+<div class="row gx-2 justify-content-center">
     @if (string.IsNullOrEmpty(Model.ImageUrl2) && string.IsNullOrEmpty(Model.ImageUrl3))
     {
         <!-- Only one image, so it's centered -->
-        <div class="col-md-12 text-center text image-container">
+        <div class="col-md-12 justify-content-center text image-container">
             <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid single-image" />
         </div>
     }
@@ -38,20 +38,26 @@
         </div>
     }
 
-        <div class="col-12 text-center text">
-            <p>@Model.Description</p>
+    <div class="col-12 text-center text my-4">
+        <p>@Model.Description</p>
+    </div>
+
+    <div class="row">
+        <!-- Venstre kolonne for detaljert informasjon -->
+        <div class="col-5 mr-2 left-text text details">
+            <p>
+                Guests: @Model.Guests <br />
+                Bedrooms: @Model.Rooms<br />
+                Beds: @Model.Beds<br />
+                Baths: @Model.Baths <br /><br />
+                Phone number: @Model.Phone <br />
+                Address: @Model.Address
+            </p>
         </div>
-        <div class="col-md-6 left-text text">
-            <p>Guests: @Model.Guests <br/>
-            Bedrooms: @Model.Rooms<br />
-            Beds: @Model.Beds<br />
-            Baths: @Model.Baths <br/>
-            <br/>
-            Phone number: @Model.Phone <br />
-            Address: @Model.Address</p>
-        </div>
-        <div class="col-md-6 d-flex justify-content-end right-box text">
-            <div class="border p-4 box" style="display: inline-block;">
+
+        <!-- Høyre kolonne for booking-boksen -->
+        <div class="col-5 ml-2 d-flex justify-content-end right-box text">
+            <div class="border p-4 box">
                 <h3>@Model.Price.ToString("0 NOK per night")</h3>
 
                 @*Booking form*@
@@ -66,8 +72,6 @@
                     <button type="submit" class="btn btn-primary">Book Stay</button>
                 </form>
             </div>
-        </div>
-</div>
 
 @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
 <script>
@@ -92,4 +96,6 @@
     });
 </script>
 
+</div>
+    </div>
 </div>
