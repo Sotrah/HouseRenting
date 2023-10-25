@@ -27,6 +27,7 @@ namespace MyShop.Models
         public string? Phone { get; set; }
 
         [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
+        [Display(Name = "Bedrooms")]
         public string? Rooms { get; set; }
 
         [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
