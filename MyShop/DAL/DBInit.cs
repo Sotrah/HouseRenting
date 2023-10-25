@@ -28,8 +28,10 @@ public static class DBInit
                     Description = "Step into the Sorcerer's Spire, a penthouse loft towering above the city lights. This luxurious dwelling offers panoramic views of the urban skyline, making guests feel as though they're floating above the bustling metropolis below. The interior seamlessly melds contemporary design with mystical touches: crystal chandeliers, enchanted mirrors, and subtle spells in every nook. Centrally located yet feeling like a citadel in the clouds, it's the ideal escape for those seeking both luxury and magic at the city's heart.",
                     Address = "Magic Avenue 77, 17th Floor\r\nMetropolis, MageRealm 1010",
                     Phone = "64578324",
-                    Rooms = "12",
+                    Rooms = "4",
                     Beds = "6",
+                    Guests = "6",
+                    Baths = "2",
                     ImageUrl = "/images/dnd26.png",
                     ImageUrl2 = "/images/Image2.4.png",
                     ImageUrl3 = "/images/Image2.0.png"
@@ -43,7 +45,10 @@ public static class DBInit
                     Phone = "68578324",
                     Rooms = "3",
                     Beds = "6",
-                    ImageUrl = "/images/dnd23.png"
+                    Guests = "6",
+                    Baths = "2",
+                    ImageUrl = "/images/dnd23.png",
+                    ImageUrl2 = "/images/Image1.0.png"
                 },
                 new Item
                 {
@@ -54,6 +59,8 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "4",
                     Beds = "5",
+                    Guests = "6",
+                    Baths = "2",
                     ImageUrl = "/images/dnd24.png"
                 },
                 new Item
@@ -65,7 +72,10 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "5",
                     Beds = "4",
-                    ImageUrl = "/images/dnd27.png"
+                    Guests = "6",
+                    Baths = "2",
+                    ImageUrl = "/images/dnd27.png",
+                    ImageUrl2 = "/images/dnd32.png"
                 },
                 new Item
                 {
@@ -76,7 +86,11 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "3",
                     Beds = "2",
-                    ImageUrl = "/images/dnd21.png"
+                    Guests = "6",
+                    Baths = "2",
+                    ImageUrl = "/images/dnd21.png",
+                    ImageUrl2 = "/images/Image2.2.png",
+                    ImageUrl3 = "/images/Image2.3.png"
                 },
                 new Item
                 {
@@ -87,6 +101,8 @@ public static class DBInit
                     Phone = "34578324",
                     Rooms = "12",
                     Beds = "10",
+                    Guests = "6",
+                    Baths = "2",
                     ImageUrl = "/images/dnd22.png"
                 },
                 new Item
@@ -98,6 +114,8 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "7",
                     Beds = "6",
+                    Guests = "8",
+                    Baths = "2",
                     ImageUrl = "/images/dnd28.png"
                 },
                 new Item
@@ -109,6 +127,8 @@ public static class DBInit
                     Phone = "56578324",
                     Rooms = "5",
                     Beds = "6",
+                    Guests = "6",
+                    Baths = "2",
                     ImageUrl = "/images/dnd29.png"
                 },
                 new Item
@@ -120,6 +140,8 @@ public static class DBInit
                     Phone = "23578324",
                     Rooms = "30",
                     Beds = "15",
+                    Guests = "6",
+                    Baths = "2",
                     ImageUrl = "/images/dnd32.png"
                 },
             };
