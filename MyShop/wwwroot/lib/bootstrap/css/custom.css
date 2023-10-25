@@ -15,8 +15,19 @@
 /* Example: If you want to modify the primary button color */
 .btn-primary {
     background-color: #7D8C5F;
+    border-color: #6B7A50;
     font-family: 'Oranienbaum', serif;
 }
+
+    .btn-primary:hover {
+        background-color: #6B7A50;
+        border-color: #596842;
+    }
+
+    .btn-primary:active {
+        background-color: #596842;
+        border-color: #475631
+    }
 
 .custom-navbar {
     background-color: #7D8C5F !important;
@@ -120,7 +131,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .additional-image {
     width: 100%;
-    object-fit: cover; /* This will crop the image to fit its container */
+    object-fit: cover; 
     max-height: 50%;
+}
+
+.footer {
+    background-color: #ECEEE5;
+    text-align: left;
+    padding: 20px 0;
+    margin-top: 200px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    color: #6B7A50;
 }
 
