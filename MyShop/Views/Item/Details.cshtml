@@ -16,6 +16,14 @@
             <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid single-image" />
         </div>
     }
+    else if (string.IsNullOrEmpty(Model.ImageUrl3))
+    {
+        <!-- Two images available, both should be displayed side by side -->
+        <div class="col-md-12 text image-container two-images">
+            <img alt="@Model.Name" src="@Model.ImageUrl" class="img-fluid" />
+            <img alt="@Model.Name" src="@Model.ImageUrl2" class="img-fluid" />
+        </div>
+    }
     else
     {
         <div class="col-md-12 d-flex image-container">
@@ -42,9 +50,9 @@
         <p>@Model.Description</p>
     </div>
 
-    <div class="row">
+    <div class="row box-row">
         <!-- Venstre kolonne for detaljert informasjon -->
-        <div class="col-5 mr-2 left-text text details">
+        <div class="col left-text text details">
             <p>
                 Guests: @Model.Guests <br />
                 Bedrooms: @Model.Rooms<br />
@@ -56,7 +64,7 @@
         </div>
 
         <!-- Høyre kolonne for booking-boksen -->
-        <div class="col-5 ml-2 d-flex justify-content-end right-box text">
+        <div class="col d-flex justify-content-end text">
             <div class="border p-4 box">
                 <h3>@Model.Price.ToString("0 NOK per night")</h3>
 
