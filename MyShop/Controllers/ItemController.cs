@@ -5,7 +5,7 @@ using MyShop.Models;
 using MyShop.ViewModels;
 
 namespace MyShop.Controllers;
-
+    
 public class ItemController : Controller
 {
     private readonly IItemRepository _itemRepository;
@@ -83,22 +83,74 @@ public class ItemController : Controller
             _logger.LogError("[ItemController] Item not found when updating the ItemId {ItemId:0000}", id);
             return BadRequest("Item not found for the ItemId");
         }
-        return View(item);
+        var itemUpdateViewModel = new ItemUpdateViewModel
+        {
+            ItemId = item.ItemId,
+            Name = item.Name,
+            Price = item.Price,
+            Description = item.Description,
+            Address = item.Address,
+            Phone= item.Phone,
+            Rooms= item.Rooms,
+            Beds = item.Beds,
+            Guests = item.Guests,
+            Baths = item.Baths,
+            // Map other properties here
+        };
+
+        return View(itemUpdateViewModel);
     }
 
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> Update(Item item)
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> Update(ItemUpdateViewModel model)
     {
         if (ModelState.IsValid)
         {
+            var item = await _itemRepository.GetItemById(model.ItemId);
+            if (item == null)
+            {
+                _logger.LogError("[ItemController] Item not found when updating the ItemId {ItemId:0000}", model.ItemId);
+                return BadRequest("Item not found for the ItemId");
+            }
+
+            // Update the item properties
+            item.Name = model.Name;
+            item.Price = model.Price;
+            item.Description = model.Description;
+            item.Address = model.Address;
+            item.Phone = model.Phone;
+            item.Rooms = model.Rooms;
+            item.Beds = model.Beds;
+            item.Guests = model.Guests;
+            item.Baths = model.Baths;
+
+            // Check and update images if needed
+            if (model.ImageUpload != null && model.ImageUpload.Length > 0)
+            {
+                item.ImageUrl = await UploadImage(model.ImageUpload);
+            }
+            if (model.ImageUpload2 != null && model.ImageUpload2.Length > 0)
+            {
+                item.ImageUrl2 = await UploadImage(model.ImageUpload2);
+            }
+            if (model.ImageUpload3 != null && model.ImageUpload3.Length > 0)
+            {
+                item.ImageUrl3 = await UploadImage(model.ImageUpload3);
+            }
+
             bool returnOk = await _itemRepository.Update(item);
             if (returnOk)
                 return RedirectToAction(nameof(Table));
         }
-        _logger.LogWarning("[ItemController] Item update failed {@item}", item);
-        return View(item);
+
+        _logger.LogWarning("[ItemController] Item update failed for ItemId {ItemId:0000}", model.ItemId);
+        return View(model);
     }
+
+
 
     [HttpGet]
     [Authorize]
