@@ -12,7 +12,6 @@ public class Booking
     public virtual Item Item { get; set; }
 
     // Foreign key to link to the user
-    // Currently marked as optional with '?' while trying stuff
     public string? UserId { get; set; }
     public virtual CustomerUser? CustomerUser { get; set; }
 }

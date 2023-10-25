@@ -17,6 +17,18 @@ public static class DBInit
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
+        if (!context.CustomerUsers.Any())
+        {
+            var customers = new List<CustomerUser>
+            {
+                new CustomerUser { Email = "AliceHansen@test1.test", PasswordHash = "1234"},
+                new CustomerUser { Email = "BobJohansen@test2.test", PasswordHash = "2345"},
+            };
+            context.AddRange(customers);
+            context.SaveChanges();
+        }
+        var customerUsers = context.CustomerUsers.ToList();
+
         if (!context.Items.Any())
         {
             var items = new List<Item>
@@ -32,7 +44,8 @@ public static class DBInit
                     Beds = "6",
                     ImageUrl = "/images/dnd26.png",
                     ImageUrl2 = "/images/Image2.4.png",
-                    ImageUrl3 = "/images/Image2.0.png"
+                    ImageUrl3 = "/images/Image2.0.png",
+                    UserId = customerUsers[0].Id,
                 },
                 new Item
                 {
@@ -43,7 +56,8 @@ public static class DBInit
                     Phone = "68578324",
                     Rooms = "3",
                     Beds = "6",
-                    ImageUrl = "/images/dnd23.png"
+                    ImageUrl = "/images/dnd23.png",
+                    UserId = customerUsers[0].Id,
                 },
                 new Item
                 {
@@ -54,7 +68,8 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "4",
                     Beds = "5",
-                    ImageUrl = "/images/dnd24.png"
+                    ImageUrl = "/images/dnd24.png",
+                    UserId = customerUsers[0].Id,
                 },
                 new Item
                 {
@@ -65,7 +80,8 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "5",
                     Beds = "4",
-                    ImageUrl = "/images/dnd27.png"
+                    ImageUrl = "/images/dnd27.png",
+                    UserId = customerUsers[0].Id,
                 },
                 new Item
                 {
@@ -76,7 +92,8 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "3",
                     Beds = "2",
-                    ImageUrl = "/images/dnd21.png"
+                    ImageUrl = "/images/dnd21.png",
+                    UserId = customerUsers[1].Id,
                 },
                 new Item
                 {
@@ -87,7 +104,8 @@ public static class DBInit
                     Phone = "34578324",
                     Rooms = "12",
                     Beds = "10",
-                    ImageUrl = "/images/dnd22.png"
+                    ImageUrl = "/images/dnd22.png",
+                    UserId = customerUsers[1].Id,
                 },
                 new Item
                 {
@@ -98,7 +116,8 @@ public static class DBInit
                     Phone = "64578324",
                     Rooms = "7",
                     Beds = "6",
-                    ImageUrl = "/images/dnd28.png"
+                    ImageUrl = "/images/dnd28.png",
+                    UserId = customerUsers[1].Id,
                 },
                 new Item
                 {
@@ -109,7 +128,8 @@ public static class DBInit
                     Phone = "56578324",
                     Rooms = "5",
                     Beds = "6",
-                    ImageUrl = "/images/dnd29.png"
+                    ImageUrl = "/images/dnd29.png",
+                    UserId = customerUsers[1].Id,
                 },
                 new Item
                 {
@@ -120,13 +140,15 @@ public static class DBInit
                     Phone = "23578324",
                     Rooms = "30",
                     Beds = "15",
-                    ImageUrl = "/images/dnd32.png"
+                    ImageUrl = "/images/dnd32.png",
+                    UserId = customerUsers[1].Id,
                 },
             };
             context.AddRange(items);
             context.SaveChanges();
         }
 
+<<<<<<< Updated upstream
         if (!context.CustomerUsers.Any())
         {
             var customers = new List<CustomerUser>
@@ -138,6 +160,9 @@ public static class DBInit
             context.SaveChanges();
         }
 
+=======
+        
+>>>>>>> Stashed changes
         if (!context.Bookings.Any())
         {
             var bookings = new List<Booking>

@@ -8,6 +8,10 @@ namespace MyShop.Models
     {
         public int ItemId { get; set; }
 
+        // Foreign key to link to the user
+        public string? UserId { get; set; }
+        public virtual CustomerUser? CustomerUser { get; set; }
+
         [RegularExpression(@"[0-9a-zA-ZæøåÆØÅ.' \-]{2,20}", ErrorMessage = "The Name must be numbers or letters and between 2 to 20 characters.")]
         [Display(Name = "Item name")]
         public string Name { get; set; } = string.Empty;
