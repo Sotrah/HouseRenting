@@ -6,12 +6,12 @@
             <th>Id</th>
             <th>Name</th>
             <th>Price per night</th>
-            <th>Description</th>
+            @*<th>Description</th>*@
             <th>Address</th>
             <th>Phone number</th>
             <th>Rooms</th>
             <th>Beds</th>
-            <th>Image</th>
+            @*<th>Image</th>*@
             <th>CustomerUser</th>
             <th>Actions</th>
         </tr>
@@ -25,14 +25,14 @@
                        asp-route-id="@item.ItemId">@item.Name</a>
                 </td>
                 <td>@item.Price.ToString("0 NOK")</td>
-                <td>@item.Description</td>
+                @*<td>@item.Description</td>*@
                 <td>@item.Address</td>
                 <td>@item.Phone</td>
                 <td>@item.Rooms</td>
                 <td>@item.Beds</td>
-                <td>
+                @*<td>
                     <img src="@item.ImageUrl" alt="Item Image" style="max-width: 250px; height: auto;" />
-                </td>
+                </td>*@
                 <td>@(item.CustomerUser?.Email)</td>
                 <td>
                     <a class="link-color" asp-action="Update" asp-route-id="@item.ItemId">Update</a>
