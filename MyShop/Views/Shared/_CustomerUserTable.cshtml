@@ -15,25 +15,27 @@
                 <td>
                     @if (@customer.Items != null)
                     {
-                        
-                            <p>@string.Join(", ", @customer.Items.Select(item => item.Name))</p>
+                       @foreach (var item in customer.Items)
+                                {
+                                    <a asp-controller="Item" asp-action="Details" asp-route-id="@item.ItemId">
+                                        <p>@string.Join(", ", item.Name)</p>
+                                    </a>
+                                }
+
+
+
+                    @*<p>
+                        <a asp-controller="Item" asp-action="Details" asp-route-id="@customer.Items">
+                            @string.Join(", ", @customer.Items.Select(item => item.Name))
+                        </a>
+                    </p>*@
                     }
                 </td>
                 <td>
-                    @*@if (@customer.Bookings != null)
+                    @if (customer.Bookings != null)
                     {
-                        <p>@string.Join(", ", @customer.Bookings.Select(booking => $"Booking{booking.BookingId}"))</p>
-                    }*@
-
-                    <p>
-                        @foreach (var item in customer.Items)
-                        {
-                            <a asp-controller="Item" asp-action="Details" asp-route-id="@item.ItemId">@item.Name</a>
-                            @if (!item.Equals(customer.Items.Last()))
-                            {@:", "; }
-                        }
-                    </p>
-
+                        <p>@string.Join(", ", customer.Bookings.Select(booking => $"Booking {booking.BookingId}"))</p>
+                    }
                 </td>
                 <td></td>
             </tr>

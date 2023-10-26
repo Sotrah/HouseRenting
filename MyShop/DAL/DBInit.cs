@@ -61,7 +61,7 @@ public static class DBInit
                     Guests = "6",
                     Baths = "2",
                     ImageUrl = "/images/dnd23.png",
-                    UserId = customerUsers[0].Id,,
+                    UserId = customerUsers[0].Id,
                     ImageUrl2 = "/images/Image1.0.png"
                 },
                 new Item
@@ -90,7 +90,7 @@ public static class DBInit
                     Guests = "6",
                     Baths = "1",
                     ImageUrl = "/images/dnd27.png",
-                    UserId = customerUsers[0].Id,,
+                    UserId = customerUsers[0].Id,
                     ImageUrl2 = "/images/dnd32.png"
                 },
                 new Item
@@ -105,7 +105,7 @@ public static class DBInit
                     Guests = "5",
                     Baths = "2",
                     ImageUrl = "/images/dnd21.png",
-                    UserId = customerUsers[1].Id,,
+                    UserId = customerUsers[1].Id,
                     ImageUrl2 = "/images/Image2.2.png",
                     ImageUrl3 = "/images/Image2.3.png"
                 },
@@ -170,20 +170,6 @@ public static class DBInit
             context.SaveChanges();
         }
 
-        if (!context.CustomerUsers.Any())
-        {
-            var customers = new List<CustomerUser>
-            {
-                new CustomerUser { Email = "AliceHansen@test1.test", PasswordHash = "1234"},
-                new CustomerUser { Email = "BobJohansen@test2.test", PasswordHash = "2345"},
-            };
-            context.AddRange(customers);
-            context.SaveChanges();
-        }
-
-        
-
-        var customerUsers = context.CustomerUsers.ToList();
         if (!context.Bookings.Any())
         {
             
