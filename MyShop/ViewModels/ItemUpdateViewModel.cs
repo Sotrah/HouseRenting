@@ -1,16 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Http;
 
-namespace MyShop.Models
+namespace MyShop.ViewModels
 {
-    public class Item
+    public class ItemUpdateViewModel
     {
         public int ItemId { get; set; }
-
-        // Foreign key to link to the user
-        public string? UserId { get; set; }
-        public virtual CustomerUser? CustomerUser { get; set; }
 
         [RegularExpression(@"[0-9a-zA-ZæøåÆØÅ.' \-]{2,20}", ErrorMessage = "The Name must be numbers or letters and between 2 to 20 characters.")]
         [Display(Name = "Item name")]
@@ -31,7 +26,6 @@ namespace MyShop.Models
         public string? Phone { get; set; }
 
         [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
-        [Display(Name = "Bedrooms")]
         public string? Rooms { get; set; }
 
         [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
@@ -43,12 +37,12 @@ namespace MyShop.Models
         [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
         public string? Baths { get; set; }
 
+        public IFormFile? ImageUpload { get; set; }
+        public IFormFile? ImageUpload2 { get; set; }
+        public IFormFile? ImageUpload3 { get; set; }
+
         public string? ImageUrl { get; set; }
         public string? ImageUrl2 { get; set; }
         public string? ImageUrl3 { get; set; }
-
-        // 
-        public virtual ICollection<Booking>? Bookings { get; set; } = new List<Booking>();
     }
 }
-

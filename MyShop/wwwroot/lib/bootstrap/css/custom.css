@@ -15,17 +15,48 @@
 /* Example: If you want to modify the primary button color */
 .btn-primary {
     background-color: #7D8C5F;
+    border-color: #6B7A50;
     font-family: 'Oranienbaum', serif;
 }
 
+    .btn-primary:hover {
+        background-color: #6B7A50;
+        border-color: #596842;
+    }
+
+    .btn-primary:active {
+        background-color: #596842;
+        border-color: #475631
+    }
+
 .custom-navbar {
     background-color: #7D8C5F !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'%3e%3c/path%3e%3c/svg%3e");
 }
 
 .box {
     background-color: #ECEEE5;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+    border-radius: 10px;
+}
+
+.box-row {
+    max-width: 950px; 
+    margin: 0 auto;
+}
+
+.listing-border {
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px; 
 }
 
 .text {
@@ -65,6 +96,20 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 100%;
 }
 
+.two-images {
+    max-height: 500px; /* You can adjust this value based on your needs */
+    display: flex;
+    gap: 5px; /* Spacing between the images */
+    justify-content: center; /* Center the images horizontally */
+    align-items: center; /* Center the images vertically */
+}
+
+    .two-images img {
+        width: 50%; /* Each image will take up 50% of the container's width */
+        max-height: 100%; /* Ensures images don't exceed the container's height */
+        object-fit: cover; /* Ensures images maintain their aspect ratio */
+    }
+
 .main-image-wrapper, .additional-images-wrapper {
     flex: 2; /* This ensures both the main image and additional images take equal width */
     display: flex;
@@ -86,6 +131,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .additional-image {
     width: 100%;
-    object-fit: cover; /* This will crop the image to fit its container */
+    object-fit: cover; 
     max-height: 50%;
 }
+
+.footer {
+    background-color: #ECEEE5;
+    text-align: left;
+    padding: 20px 0;
+    margin-top: 200px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    color: #6B7A50;
+}
+

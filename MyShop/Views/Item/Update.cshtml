@@ -1,6 +1,6 @@
-﻿@model Item
+﻿@model MyShop.ViewModels.ItemUpdateViewModel
 
-<h2>Update Item</h2>
+<h2>Update Listing</h2>
 
 <form asp-action="Update" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="ItemId" />
@@ -51,13 +51,13 @@
     </div>
     <div class="form-group">
         <label for="ImageUpload">Image 1</label>
-        <input type="hidden" asp-for="ImageUrl"/>
+        <input type="hidden" asp-for="ImageUrl" />
         <input type="file" id="ImageUpload" name="ImageUpload" class="form-control" accept="image/*" />
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
-        <div class="form-group">
+    <div class="form-group">
         <label for="ImageUpload2">Image 2</label>
-        <input type="hidden" asp-for="ImageUrl2"/>
+        <input type="hidden" asp-for="ImageUrl2" />
         <input type="file" id="ImageUpload2" name="ImageUpload2" class="form-control" accept="image/*" />
         <span asp-validation-for="ImageUrl2" class="text-danger"></span>
     </div>
@@ -67,6 +67,7 @@
         <input type="file" id="ImageUpload3" name="ImageUpload3" class="form-control" accept="image/*" />
         <span asp-validation-for="ImageUrl3" class="text-danger"></span>
     </div>
+
     <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
     <a asp-action="Table" class="btn btn-secondary mt-3">Cancel</a>
 </form>
