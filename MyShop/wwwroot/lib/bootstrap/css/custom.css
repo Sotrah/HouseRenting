@@ -135,6 +135,16 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 50%;
 }
 
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    min-height: calc(100% - 60px - 40px); /* 60px er foteren din høyde og 40px kan være total padding/margin for å kompensere */
+    padding-bottom: 20px; /* avstand mellom innhold og footer */
+}
+
 .footer {
     background-color: #ECEEE5;
     text-align: left;
@@ -145,5 +155,6 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 0;
     height: 60px;
     color: #6B7A50;
+    clear: both;
 }
 
