@@ -170,7 +170,6 @@ public static class DBInit
             context.SaveChanges();
         }
 
-<<<<<<< Updated upstream
         if (!context.CustomerUsers.Any())
         {
             var customers = new List<CustomerUser>
@@ -182,9 +181,7 @@ public static class DBInit
             context.SaveChanges();
         }
 
-=======
         
->>>>>>> Stashed changes
 
         var customerUsers = context.CustomerUsers.ToList();
         if (!context.Bookings.Any())
