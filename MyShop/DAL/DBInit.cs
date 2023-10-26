@@ -17,6 +17,18 @@ public static class DBInit
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
+        if (!context.CustomerUsers.Any())
+        {
+            var customers = new List<CustomerUser>
+            {
+                new CustomerUser { Email = "AliceHansen@test1.test", PasswordHash = "1234"},
+                new CustomerUser { Email = "BobJohansen@test2.test", PasswordHash = "2345"},
+            };
+            context.AddRange(customers);
+            context.SaveChanges();
+        }
+        var customerUsers = context.CustomerUsers.ToList();
+
         if (!context.Items.Any())
         {
             var items = new List<Item>
@@ -34,7 +46,8 @@ public static class DBInit
                     Baths = "2",
                     ImageUrl = "/images/dnd26.png",
                     ImageUrl2 = "/images/Image2.4.png",
-                    ImageUrl3 = "/images/Image2.0.png"
+                    ImageUrl3 = "/images/Image2.0.png",
+                    UserId = customerUsers[0].Id,
                 },
                 new Item
                 {
@@ -48,7 +61,8 @@ public static class DBInit
                     Guests = "6",
                     Baths = "2",
                     ImageUrl = "/images/dnd23.png",
-                    ImageUrl2 = "/images/Image2.0.png"
+                    ImageUrl2 = "/images/Image1.0.png",
+                    UserId = customerUsers[0].Id,
                 },
                 new Item
                 {
@@ -61,7 +75,8 @@ public static class DBInit
                     Beds = "5",
                     Guests = "6",
                     Baths = "2",
-                    ImageUrl = "/images/dnd24.png"
+                    ImageUrl = "/images/dnd24.png",
+                    UserId = customerUsers[0].Id,
                 },
                 new Item
                 {
@@ -75,6 +90,7 @@ public static class DBInit
                     Guests = "6",
                     Baths = "1",
                     ImageUrl = "/images/dnd27.png",
+                    UserId = customerUsers[0].Id,
                     ImageUrl2 = "/images/dnd32.png"
                 },
                 new Item
@@ -89,6 +105,7 @@ public static class DBInit
                     Guests = "5",
                     Baths = "2",
                     ImageUrl = "/images/dnd21.png",
+                    UserId = customerUsers[1].Id,
                     ImageUrl2 = "/images/Image2.2.png",
                     ImageUrl3 = "/images/Image2.3.png"
                 },
@@ -103,7 +120,8 @@ public static class DBInit
                     Beds = "10",
                     Guests = "15",
                     Baths = "3",
-                    ImageUrl = "/images/dnd22.png"
+                    ImageUrl = "/images/dnd22.png",
+                    UserId = customerUsers[1].Id,
                 },
                 new Item
                 {
@@ -116,7 +134,8 @@ public static class DBInit
                     Beds = "6",
                     Guests = "12",
                     Baths = "3",
-                    ImageUrl = "/images/dnd28.png"
+                    ImageUrl = "/images/dnd28.png",
+                    UserId = customerUsers[1].Id,
                 },
                 new Item
                 {
@@ -129,7 +148,8 @@ public static class DBInit
                     Beds = "6",
                     Guests = "8",
                     Baths = "2",
-                    ImageUrl = "/images/dnd29.png"
+                    ImageUrl = "/images/dnd29.png",
+                    UserId = customerUsers[1].Id,
                 },
                 new Item
                 {
@@ -142,26 +162,14 @@ public static class DBInit
                     Beds = "15",
                     Guests = "30",
                     Baths = "8",
-                    ImageUrl = "/images/dnd32.png"
+                    ImageUrl = "/images/dnd32.png",
+                    UserId = customerUsers[1].Id,
                 },
             };
             context.AddRange(items);
             context.SaveChanges();
         }
 
-        if (!context.CustomerUsers.Any())
-        {
-            var customers = new List<CustomerUser>
-            {
-                new CustomerUser { Email = "AliceHansen@test1.test", PasswordHash = "1234"},
-                new CustomerUser { Email = "BobJohansen@test2.test", PasswordHash = "2345"},
-            };
-            context.AddRange(customers);
-            context.SaveChanges();
-        }
-
-
-        var customerUsers = context.CustomerUsers.ToList();
         if (!context.Bookings.Any())
         {
             

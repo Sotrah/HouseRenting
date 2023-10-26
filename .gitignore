@@ -373,5 +373,6 @@ MyShop/ItemDatabase.db-wal
 *.db-shm
 MyShop/ItemDatabase.db-wal
 MyShop/ItemDatabase.db-shm
+*.db-wal
 /MyShop/ItemDatabase.db-shm
 /MyShop/ItemDatabase.db-wal

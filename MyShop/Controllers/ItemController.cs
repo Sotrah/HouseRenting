@@ -5,6 +5,7 @@ using MyShop.Models;
 using MyShop.ViewModels;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 
 namespace MyShop.Controllers;
 
@@ -13,6 +14,8 @@ public class ItemController : Controller
     private readonly IItemRepository _itemRepository;
     private readonly ILogger<ItemController> _logger;
     private readonly IWebHostEnvironment _hostEnvironment;
+    private readonly UserManager<CustomerUser> _userManager; // Inject UserManager
+
 
     public ItemController(IItemRepository itemRepository, ILogger<ItemController> logger, IWebHostEnvironment hostEnvironment)
     {
@@ -69,6 +72,9 @@ public class ItemController : Controller
     {
         if (ModelState.IsValid)
         {
+            var user = await _userManager.GetUserAsync(User);
+            string userId = user.Id;
+
             var imageUrl = await UploadImage(model.ImageUpload);
             var imageUrl2 = await UploadImage(model.ImageUpload2);
             var imageUrl3 = await UploadImage(model.ImageUpload3);
@@ -92,6 +98,8 @@ public class ItemController : Controller
                 ImageUrl = imageUrl,
                 ImageUrl2 = imageUrl2,
                 ImageUrl3 = imageUrl3,
+                UserId = userId,
+                CustomerUser = user,
             };
 
             bool returnOk = await _itemRepository.Create(item);

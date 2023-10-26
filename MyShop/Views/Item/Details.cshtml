@@ -60,7 +60,8 @@
                 Beds: @Model.Beds<br />
                 Baths: @Model.Baths <br /><br />
                 Phone number: @Model.Phone <br />
-                Address: @Model.Address
+                Address: @Model.Address<br />
+                Email: @Model.CustomerUser.Email
             </p>
         </div>
 
@@ -69,7 +70,7 @@
             <div class="border p-4 box">
                 <h3>@Model.Price.ToString("0 NOK per night")</h3>
 
-                @*Booking form*@
+                @*   Booking form   *@
                 <form asp-controller="Booking" asp-action="CreateBooking">
                     @*Flatpickr Date Picker stuff from https://flatpickr.js.org/examples/#range-calendar *@
                     <div class="form-group text">
