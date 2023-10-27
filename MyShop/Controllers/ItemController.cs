@@ -17,11 +17,12 @@ public class ItemController : Controller
     private readonly UserManager<CustomerUser> _userManager; // Inject UserManager
 
 
-    public ItemController(IItemRepository itemRepository, ILogger<ItemController> logger, IWebHostEnvironment hostEnvironment)
+    public ItemController(IItemRepository itemRepository, ILogger<ItemController> logger, IWebHostEnvironment hostEnvironment, UserManager<CustomerUser> userManager)
     {
         _itemRepository = itemRepository;
         _logger = logger;
         _hostEnvironment = hostEnvironment;
+        _userManager = userManager;
     }
 
     public async Task<IActionResult> Table()

@@ -139,6 +139,16 @@ a {
     max-height: 50%;
 }
 
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    min-height: calc(100% - 60px - 40px); /* 60px er foteren din høyde og 40px kan være total padding/margin for å kompensere */
+    padding-bottom: 20px; /* avstand mellom innhold og footer */
+}
+
 .footer {
     background-color: #ECEEE5;
     text-align: left;
@@ -149,5 +159,6 @@ a {
     bottom: 0;
     height: 60px;
     color: #6B7A50;
+    clear: both;
 }
 

@@ -17,7 +17,7 @@
                     <tr>
                         <td>@booking.CustomerUser.Email</td>
                         <td><a class="link-color" asp-controller="Item" asp-action="Details" asp-route-id="@booking.ItemId">@booking.Item.Name</a></td>
-                        <td>@booking.BookingDate</td>
+                        <td>@booking.BookingDate.ToString("dd/MM/yyyy")</td>
                     </tr>
                 </table>
             </div>

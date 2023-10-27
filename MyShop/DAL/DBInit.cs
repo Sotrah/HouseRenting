@@ -61,8 +61,8 @@ public static class DBInit
                     Guests = "6",
                     Baths = "2",
                     ImageUrl = "/images/dnd23.png",
+                    ImageUrl2 = "/images/Image1.0.png",
                     UserId = customerUsers[0].Id,
-                    ImageUrl2 = "/images/Image1.0.png"
                 },
                 new Item
                 {
@@ -178,13 +178,13 @@ public static class DBInit
                 new Booking
                 {
                     ItemId = 1,
-                    UserId = customerUsers[0].Id,
+                    UserId = customerUsers[1].Id,
                     BookingDate = new DateTime(2023, 10, 25),  // Example booked date
                 },
                 new Booking
                 {
-                    ItemId = 2,
-                    UserId = customerUsers[1].Id,
+                    ItemId = 5,
+                    UserId = customerUsers[0].Id,
                     BookingDate = new DateTime(2023, 10, 30)   // Another example booked date
                 },
             };
