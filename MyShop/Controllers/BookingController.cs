@@ -29,6 +29,13 @@ public class BookingController : Controller
     }
 
     [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> CreateBooking()
+    {
+        return RedirectToAction("Grid", "Item"); // If you try booking something without being logged in, you'll go to Item Grid after logging in
+    }
+
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> CreateBooking(Booking booking)
     {

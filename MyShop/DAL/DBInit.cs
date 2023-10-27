@@ -179,13 +179,13 @@ public static class DBInit
                 {
                     ItemId = 1,
                     UserId = customerUsers[1].Id,
-                    BookingDate = new DateTime(2023, 10, 25),  // Example booked date
+                    BookingDate = new DateTime(2023, 11, 25),  // Example booked date
                 },
                 new Booking
                 {
                     ItemId = 5,
                     UserId = customerUsers[0].Id,
-                    BookingDate = new DateTime(2023, 10, 30)   // Another example booked date
+                    BookingDate = new DateTime(2023, 11, 30)   // Another example booked date
                 },
             };
             context.AddRange(bookings);
