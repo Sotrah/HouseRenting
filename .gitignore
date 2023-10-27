@@ -374,3 +374,4 @@ MyShop/ItemDatabase.db-wal
 MyShop/ItemDatabase.db-wal
 MyShop/ItemDatabase.db-shm
 *.db-wal
+MyShop/wwwroot/.DS_Store
