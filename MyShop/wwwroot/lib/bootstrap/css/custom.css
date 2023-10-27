@@ -162,3 +162,7 @@ body, html {
     clear: both;
 }
 
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #e9eaeb !important;
+}
