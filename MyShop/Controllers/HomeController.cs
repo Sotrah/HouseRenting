@@ -13,7 +13,7 @@ namespace MyShop.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Grid", "Item"); // Index always redirects to Item Grid
         }
     }
 }
