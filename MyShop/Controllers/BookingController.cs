@@ -12,12 +12,14 @@ public class BookingController : Controller
 {
     private readonly ItemDbContext _itemDbContext;
     private readonly UserManager<CustomerUser> _userManager; // Inject UserManager
+    private readonly ILogger<BookingController> _logger;
 
 
-    public BookingController(ItemDbContext itemDbContext, UserManager<CustomerUser> userManager)
+    public BookingController(ItemDbContext itemDbContext, UserManager<CustomerUser> userManager,ILogger<BookingController> logger)
     {
         _itemDbContext = itemDbContext;
         _userManager = userManager;
+        _logger = logger;
     }
 
     public async Task<IActionResult> Table()
@@ -63,8 +65,9 @@ public class BookingController : Controller
             await _itemDbContext.SaveChangesAsync();
             return RedirectToAction("Table", "User");
         }
-        catch
+        catch(Exception ex) 
         {
+            _logger.LogError(ex, "Failed to create booking item");
             return BadRequest("BookingItem creation failed.");
         }
     }
