@@ -35,11 +35,11 @@ namespace MyShop.ViewModels
 
         [RegularExpression(@"^[0-9]{1,50}$", ErrorMessage = "Must be a number between 1 and 50")]
         public string? Baths { get; set; }
-
+        //Uploaded images
         public IFormFile? ImageUpload { get; set; }
         public IFormFile? ImageUpload2 { get; set; }
         public IFormFile? ImageUpload3 { get; set; }
-
+        //"saved" images, that gets linked in again
         public string? ImageUrl { get; set; }
         public string? ImageUrl2 { get; set; }
         public string? ImageUrl3 { get; set; }
