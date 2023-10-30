@@ -26,7 +26,7 @@ public class ItemRepository : IItemRepository
             _logger.LogError("[ItemRepository] items ToListAsync() failed when GetAll(), error message: {e}", e.Message);
             return null;
         }
-        
+
     }
 
     public async Task<Item?> GetItemById(int id)
@@ -40,7 +40,7 @@ public class ItemRepository : IItemRepository
             _logger.LogError("[ItemRepository] item FindAsync(id) failed when GetItemById for ItemId {ItemId:0000}, error message: {e}", id, e.Message);
             return null;
         }
-        
+
     }
 
     public async Task<bool> Create(Item item)

@@ -1,10 +1,4 @@
-﻿using Humanizer;
-using Microsoft.EntityFrameworkCore;
-using MyShop.Models;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System;
-using static System.Net.Mime.MediaTypeNames;
+﻿using MyShop.Models;
 
 namespace MyShop.DAL;
 
@@ -172,7 +166,7 @@ public static class DBInit
 
         if (!context.Bookings.Any())
         {
-            
+
             var bookings = new List<Booking>
             {
                 new Booking
@@ -190,7 +184,7 @@ public static class DBInit
             };
             context.AddRange(bookings);
             context.SaveChanges();
-        } 
-       
+        }
+
     }
 }

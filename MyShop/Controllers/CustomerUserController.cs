@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyShop.Models;
 using Microsoft.EntityFrameworkCore;
 using MyShop.DAL;
+using MyShop.Models;
 namespace MyShop.Controllers;
 
 public class CustomerUserController : Controller

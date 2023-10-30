@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace MyShop.ViewModels
+﻿namespace MyShop.ViewModels
 {
     public class ItemCreateViewModel
     {

@@ -29,9 +29,9 @@ public class ItemDbContext : IdentityDbContext<CustomerUser>
             .HasForeignKey(b => b.UserId);  // Booking's UserId is the foreign key
 
         modelBuilder.Entity<Item>()
-                   .HasOne(b => b.CustomerUser)           
-                   .WithMany(u => u.Items)   
-                   .HasForeignKey(b => b.UserId); 
+                   .HasOne(b => b.CustomerUser)
+                   .WithMany(u => u.Items)
+                   .HasForeignKey(b => b.UserId);
 
 
         base.OnModelCreating(modelBuilder);

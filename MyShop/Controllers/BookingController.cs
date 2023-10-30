@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyShop.Models;
-using Microsoft.EntityFrameworkCore;
-using MyShop.ViewModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Authorization;
-using MyShop.DAL;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MyShop.DAL;
+using MyShop.Models;
 
 namespace MyShop.Controllers;
 

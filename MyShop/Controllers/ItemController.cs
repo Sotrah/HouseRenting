@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyShop.DAL;
 using MyShop.Models;
 using MyShop.ViewModels;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 
 namespace MyShop.Controllers;
 
@@ -130,7 +128,7 @@ public class ItemController : Controller
             Price = item.Price,
             Description = item.Description,
             Address = item.Address,
-            Phone  = item.Phone,
+            Phone = item.Phone,
             Rooms = item.Rooms,
             Beds = item.Beds,
             Guests = item.Guests,
