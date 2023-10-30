@@ -20,7 +20,7 @@
             <tr>
                 <td>@item.ItemId</td>
                 <td>
-                    <a class="link-color" asp-controller="Item"
+                    <a asp-controller="Item"
                        asp-action="Details"
                        asp-route-id="@item.ItemId">@item.Name</a>
                 </td>
@@ -35,14 +35,14 @@
                 </td>*@
                 <td>@(item.CustomerUser?.Email)</td>
                 <td>
-                    <a class="link-color" asp-action="Update" asp-route-id="@item.ItemId">Update</a>
-                    <a class="link-color" asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
+                    <a asp-action="Update" asp-route-id="@item.ItemId">Update</a>
+                    <a asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
                 </td>
             </tr>
         }
     </table>
     <p>
-        <a class="btn btn-secondary"
+        <a class="btn btn-primary text-light"
            asp-controller="Item"
            asp-action="Create">Create New Item</a>
     </p>
