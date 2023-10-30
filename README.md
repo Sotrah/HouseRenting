@@ -7,3 +7,9 @@ Register, register an account and then do what you wish to do.
 Create new listing, check out bookings. 
 Edit Listings to update or delete preview listings.
 Try it out yourself! Have fun with it ^.^
+
+
+Made by:
+-Caleb Munchinsky
+-Karoline Dahl
+-Joacim Sørlle
