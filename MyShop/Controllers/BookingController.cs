@@ -63,7 +63,7 @@ public class BookingController : Controller
 
             _itemDbContext.Bookings.Add(newBooking);
             await _itemDbContext.SaveChangesAsync();
-            return RedirectToAction("Table", "Booking");
+            return RedirectToAction("Table", "Booking"); //After creating a booking, reroutes you to a booking list.
         }
         catch(Exception ex) 
         {

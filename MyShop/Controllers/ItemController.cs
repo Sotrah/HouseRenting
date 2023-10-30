@@ -151,11 +151,9 @@ public class ItemController : Controller
                 return BadRequest("Item not found for the ItemId");
             }
 
-            // Update the item properties
             item.Name = model.Name;
             item.Price = model.Price;
             item.Description = model.Description;
-            // Update other properties as needed...
 
             // Check and update images if needed
             if (model.ImageUpload != null && model.ImageUpload.Length > 0)
