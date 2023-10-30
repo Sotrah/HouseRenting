@@ -12,7 +12,7 @@ public class ItemController : Controller
     private readonly IItemRepository _itemRepository;
     private readonly ILogger<ItemController> _logger;
     private readonly IWebHostEnvironment _hostEnvironment;
-    private readonly UserManager<CustomerUser> _userManager; // Inject UserManager
+    private readonly UserManager<CustomerUser> _userManager;
 
 
     public ItemController(IItemRepository itemRepository, ILogger<ItemController> logger, IWebHostEnvironment hostEnvironment, UserManager<CustomerUser> userManager)
@@ -154,6 +154,11 @@ public class ItemController : Controller
             item.Name = model.Name;
             item.Price = model.Price;
             item.Description = model.Description;
+            item.Phone = model.Phone;
+            item.Rooms = model.Rooms;
+            item.Beds = model.Beds;
+            item.Guests = model.Guests;
+            item.Baths = model.Baths;
 
             // Check and update images if needed
             if (model.ImageUpload != null && model.ImageUpload.Length > 0)
