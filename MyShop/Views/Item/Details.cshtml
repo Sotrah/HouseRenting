@@ -98,13 +98,11 @@
 
     const datePicker = flatpickr("#datePicker", {
         // Configure options here
-        // inline: true,
-        // mode: "range",
         minDate: "today",
         dateFormat: "Y-m-d",
         disable: Bookings,
 
-        // trying to make it so you can't submit the form without picking a date
+        // adjustments so you can't submit the form without picking a date
         allowInput: true,
         onOpen: function (selectedDates, dateStr, instance) {
             $(instance.altInput).prop('readonly', true);
