@@ -10,6 +10,4 @@ Try it out yourself! Have fun with it ^.^
 
 
 Made by:
--Caleb Munchinsky
--Karoline Dahl
--Joacim Sørlle
+Caleb Munchinsky, Karoline Dahl, Joacim Sørlle
