@@ -55,7 +55,7 @@ public static class DBInit
                     Guests = "6",
                     Baths = "2",
                     ImageUrl = "/images/dnd23.png",
-                    ImageUrl2 = "/images/Image1.0.png",
+                    ImageUrl2 = "/images/Image2.0.png",
                     UserId = customerUsers[0].Id,
                 },
                 new Item
