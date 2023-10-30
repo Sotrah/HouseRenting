@@ -1,26 +1,6 @@
 ﻿@model IEnumerable<Booking>
 
-<h1>List of Bookings</h1>
+<h1>Bookings</h1>
 
-@foreach (var booking in Model)
-{
-    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
-        <div class="container">
-            <h5>Booking @booking.BookingId </h5>
-            <div>
-                <table class='table table-striped' style='max-width: 1200px;'>
-                    <tr class="table-header">
-                        <th>CustomerUser</th>
-                        <th>Listing</th>
-                        <th>BookingDate</th>
-                    </tr>
-                    <tr>
-                        <td>@booking.CustomerUser.Email</td>
-                        <td><a class="link-color" asp-controller="Item" asp-action="Details" asp-route-id="@booking.ItemId">@booking.Item.Name</a></td>
-                        <td>@booking.BookingDate.ToString("dd/MM/yyyy")</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-}
+<partial name="_BookingTable" model="Model" />
+

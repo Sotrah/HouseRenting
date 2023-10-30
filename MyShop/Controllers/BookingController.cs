@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -61,7 +61,7 @@ public class BookingController : Controller
 
             _itemDbContext.Bookings.Add(newBooking);
             await _itemDbContext.SaveChangesAsync();
-            return RedirectToAction(nameof(Table));
+            return RedirectToAction("Table", "User");
         }
         catch
         {
