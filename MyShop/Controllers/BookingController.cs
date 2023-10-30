@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyShop.Models;
 using Microsoft.EntityFrameworkCore;
-using MyShop.ViewModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using MyShop.DAL;
 using Microsoft.AspNetCore.Identity;
@@ -63,7 +61,7 @@ public class BookingController : Controller
 
             _itemDbContext.Bookings.Add(newBooking);
             await _itemDbContext.SaveChangesAsync();
-            return RedirectToAction(nameof(Table));
+            return RedirectToAction("Table", "User");
         }
         catch
         {
